@@ -13,6 +13,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+/* Robust Canvas Sizing */
+canvas {
+    max-width: 100%;
+    display: block;
+}
+#canvasHierarchyBars, #canvasDeptBars, #canvasWaveChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 :root {
     --primary-color: #3b82f6;
     --primary-hover: #2563eb;
@@ -1040,16 +1050,7 @@ body.theme-dark .badge.bg-secondary,
                     <i class="bi bi-shield-shaded text-info"></i>
                 </div>
                 <h4 class="fw-bold text-white mb-1" id="t-login-portal-title">منظومة الرصد الإشعاعي OSL</h4>
-                <div class="d-flex justify-content-center align-items-center gap-2 my-2">
-                    <span class="badge bg-primary bg-opacity-25 text-info border border-info px-2 py-1 small fw-bold" id="t-login-version">
-                        <i class="bi bi-patch-check-fill me-1"></i>الإصدار: v6.5 Production
-                    </span>
-                    <span class="badge bg-dark border border-secondary text-light px-2 py-1 small" id="t-login-author">
-                        <i class="bi bi-person-badge text-warning me-1"></i>Alaa Alhabees
-                    </span>
-                </div>
-                <div class="login-sub-badge mb-2">Landauer InLight® Radiation Protection Portal</div>
-                <p class="text-light opacity-75 small mb-0" id="t-login-portal-subtitle">بوابة المستشفيات والمراكز الطبية للرقابة الإشعاعية</p>
+                <p class="text-light opacity-75 small mb-0 mt-2" id="t-login-portal-subtitle">بوابة تسجيل الدخول والرقابة الإشعاعية</p>
             </div>
 
             <!-- Error Message Alert -->
@@ -1088,14 +1089,11 @@ body.theme-dark .badge.bg-secondary,
             </form>
 
             <div class="login-footer text-center mt-4 pt-3 border-top border-secondary" style="font-size: 0.8rem;">
-                <div class="text-muted mb-1"><i class="bi bi-lock-fill text-success"></i> اتصال مشفر وآمن 100% بنظام الحماية والرقابة الإشعاعية</div>
-                <div class="text-white-50 mb-1">
-                    <b class="text-light">Landauer InLight® System</b> • تطوير وإشراف: <span class="text-warning fw-bold">Alaa Alhabees</span>
-                </div>
-                <div class="d-flex justify-content-center align-items-center gap-3 text-secondary small">
-                    <a href="mailto:3la2al7abees@gmail.com" class="text-info text-decoration-none"><i class="bi bi-envelope me-1"></i>3la2al7abees@gmail.com</a>
-                    <span>•</span>
-                    <a href="tel:00962797256818" class="text-success text-decoration-none"><i class="bi bi-telephone me-1"></i>00962797256818</a>
+                <div class="text-muted mb-1" id="t-login-secure"><i class="bi bi-shield-lock-fill text-success me-1"></i> اتصال مشفر وآمن 100% بنظام الرصد والوقاية الإشعاعية</div>
+                <div class="text-white-50 small">
+                    <span id="t-login-dev">تطوير وإشراف:</span> <b class="text-light">Alaa Alhabees</b> • 
+                    <a href="mailto:3la2al7abees@gmail.com" class="text-info text-decoration-none ms-1">3la2al7abees@gmail.com</a> • 
+                    <a href="tel:00962797256818" class="text-success text-decoration-none ms-1">00962797256818</a>
                 </div>
             </div>
         </div>
@@ -1108,23 +1106,18 @@ body.theme-dark .badge.bg-secondary,
 
     <!-- TOP NAVBAR -->
     <header class="top-navbar d-flex flex-wrap justify-content-between align-items-center gap-3">
-        <div class="system-logo">
+        <div class="system-logo d-flex align-items-center gap-2">
             <i class="bi bi-shield-shaded text-info fs-3"></i>
             <div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="d-block fw-bold" id="t-app-title" style="font-size: 1.15rem; line-height: 1.2;">منظومة الرصد الإشعاعي الفردي OSL</span>
-                    <span class="badge bg-primary bg-opacity-25 text-info border border-info border-opacity-50 px-2 py-0.5 rounded-pill fw-bold" style="font-size: 0.7rem;" id="t-app-version-badge">
-                        <i class="bi bi-patch-check-fill me-1"></i>v6.5
-                    </span>
-                </div>
-                <div class="d-flex flex-wrap align-items-center gap-2 mt-1" style="font-size: 0.73rem;">
-                    <small class="text-light opacity-90 fw-normal" id="t-app-subtitle">Landauer InLight® Dosimetry & Dose Registry</small>
+                <span class="d-block fw-bold" id="t-app-title" style="font-size: 1.15rem; line-height: 1.2;">منظومة الرصد الإشعاعي الفردي OSL</span>
+                <div class="d-flex flex-wrap align-items-center gap-2 mt-0.5" style="font-size: 0.73rem;">
+                    <small class="text-light opacity-75 fw-normal" id="t-app-subtitle">سجل الجرعات المهنية والوقاية الإشعاعية</small>
                     <span class="text-secondary">•</span>
-                    <span class="text-white-50"><i class="bi bi-person-fill text-warning"></i> <b class="text-light" id="t-app-dev-name">Alaa Alhabees</b></span>
+                    <span class="text-white-50"><i class="bi bi-person-fill text-warning me-1"></i><b class="text-light" id="t-app-dev-name">Alaa Alhabees</b></span>
                     <span class="text-secondary">•</span>
-                    <a href="mailto:3la2al7abees@gmail.com" class="text-info text-decoration-none" title="Email"><i class="bi bi-envelope-fill"></i> 3la2al7abees@gmail.com</a>
+                    <a href="mailto:3la2al7abees@gmail.com" class="text-info text-decoration-none" title="Email"><i class="bi bi-envelope-fill me-1"></i>3la2al7abees@gmail.com</a>
                     <span class="text-secondary">•</span>
-                    <a href="tel:00962797256818" class="text-success text-decoration-none" title="Phone / WhatsApp"><i class="bi bi-telephone-fill"></i> 00962797256818</a>
+                    <a href="tel:00962797256818" class="text-success text-decoration-none" title="Phone / WhatsApp"><i class="bi bi-telephone-fill me-1"></i>00962797256818</a>
                 </div>
             </div>
         </div>
@@ -1307,21 +1300,26 @@ body.theme-dark .badge.bg-secondary,
                 <!-- Dose Waves Trend Chart -->
                 <div class="col-lg-7">
                     <div class="content-card h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                        <!-- Repositioned Header: Safe Badge Placed at the TOP to completely eliminate text overlap -->
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2 pb-2 border-bottom" style="border-color: var(--border-color) !important;">
                             <div>
                                 <h6 class="fw-bold text-primary mb-0" id="t-dash-wave-title">منحنيات مستويات الجرعات الإشعاعية التراكمية (Hp10)</h6>
                                 <small class="text-muted" id="t-dash-wave-sub">توزيع متوسط وأعلى الجرعات المسجلة بالمللي سيفرت (mSv)</small>
                             </div>
-                            <span class="badge bg-success" id="t-dash-wave-safe">الحد الآمن: 1.67 mSv/شهر</span>
+                            <div class="d-flex flex-wrap align-items-center gap-2">
+                                <span class="badge bg-success-subtle text-success border border-success px-2 py-1 small" id="t-wave-safe-badge">
+                                    <i class="bi bi-shield-check"></i> <span id="t-wave-safe-text">كافة القراءات في النطاق الآمن (&lt; 1.67 mSv)</span>
+                                </span>
+                                <span class="badge bg-secondary opacity-75 small" id="t-dash-wave-safe">الحد: 1.67 mSv/شهر</span>
+                            </div>
                         </div>
                         <div style="position: relative; height: 210px; width: 100%;">
                             <canvas id="canvasWaveChart"></canvas>
                         </div>
-                        <!-- Plain Language Wave Chart Guide -->
+                        <!-- Plain Language Wave Chart Guide (Clean layout without badge collision) -->
                         <div class="chart-explainer-box mt-2">
-                            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+                            <div class="mb-2">
                                 <span class="fw-bold text-primary small"><i class="bi bi-info-circle-fill"></i> <span id="t-wave-guide-title">دليل فهم المنحنى للمستخدم العادي:</span></span>
-                                <span class="badge bg-success-subtle text-success border border-success px-2 py-1 small"><i class="bi bi-shield-check"></i> <span id="t-wave-safe-badge">كافة القراءات تقع في النطاق الآمن (&lt; 1.67 mSv)</span></span>
                             </div>
                             <div class="row g-2 small">
                                 <div class="col-md-4">
@@ -2519,9 +2517,9 @@ body.theme-dark .badge.bg-secondary,
         <!-- APPLICATION SYSTEM FOOTER -->
         <footer class="text-center py-3 mt-4 border-top" style="border-color: var(--border-color) !important; font-size: 0.8rem; background: var(--bg-surface-secondary); border-radius: 12px;">
             <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 text-muted">
-                <span><b class="text-white">منظومة الرصد الإشعاعي الفردي (OSL Dosimetry)</b> — <span class="badge bg-primary bg-opacity-25 text-info border border-info border-opacity-50 px-2 py-0.5" id="t-footer-ver">الإصدار: v6.5 Production</span></span>
+                <span><b class="text-white" id="t-footer-title">منظومة الرصد الإشعاعي الفردي OSL</b> — <span id="t-footer-sub">سجل الجرعات المهنية والوقاية الإشعاعية</span></span>
                 <span>•</span>
-                <span>تطوير وإشراف: <b class="text-light" id="t-footer-dev">م. علاء الحبيس (Alaa Alhabees)</b></span>
+                <span><span id="t-footer-dev-lbl">تطوير وإشراف:</span> <b class="text-light" id="t-footer-dev">م. علاء الحبيس (Alaa Alhabees)</b></span>
                 <span>•</span>
                 <a href="mailto:3la2al7abees@gmail.com" class="text-info text-decoration-none"><i class="bi bi-envelope-at-fill me-1"></i>3la2al7abees@gmail.com</a>
                 <span>•</span>
@@ -3419,190 +3417,136 @@ function toggleLanguage() {
     saveSettingToServer('language', currentLang);
 }
 
-function applyLanguage(lang) {
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    
-    const dict = I18N[lang];
-    const isEn = lang === 'en';
 
-    // Update Top App Title & Navigation Tabs
-    const elMap = {
-        // Login Screen Translations
-        't-login-portal-title': isEn ? "OSL Radiation Monitoring Portal" : "منظومة الرصد الإشعاعي OSL",
-        't-login-portal-subtitle': isEn ? "Authorized Medical Facilities & Personnel Portal" : "بوابة المستشفيات والمراكز الطبية للرقابة الإشعاعية",
-        't-login-lbl-user': isEn ? '<i class="bi bi-person-fill text-info me-1"></i> Username or Email:' : '<i class="bi bi-person-fill text-info me-1"></i> اسم المستخدم أو البريد الإلكتروني:',
-        't-login-lbl-pass': isEn ? '<i class="bi bi-key-fill text-warning me-1"></i> Password:' : '<i class="bi bi-key-fill text-warning me-1"></i> كلمة المرور:',
-        'lblLoginLang': dict.btnLang,
-        'btnLoginSubmit': isEn ? '<i class="bi bi-box-arrow-in-right me-1"></i> Sign In to System' : '<i class="bi bi-box-arrow-in-right me-1"></i> تسجيل الدخول للمنظومة',
+// =========================================================================
+// EXHAUSTIVE AUTOMATED BILINGUAL TRANSLATION ENGINE (ARABIC <-> ENGLISH)
+// =========================================================================
+const MASTER_I18N_DICT = {"منظومة الرصد الإشعاعي الفردي OSL": "OSL Personal Dosimetry System", "منظومة الرصد الإشعاعي OSL": "OSL Radiation Monitoring Portal", "سجل الجرعات المهنية والوقاية الإشعاعية": "Occupational Dose Registry & Radiation Safety", "بوابة تسجيل الدخول والرقابة الإشعاعية": "Radiation Safety Login Portal", "اتصال مشفر وآمن 100% بنظام الحماية المتقدم": "100% Secure & Encrypted Connection", "اتصال مشفر وآمن 100% بنظام الحماية والرقابة الإشعاعية": "100% Secure & Encrypted Connection", "بوابة آمنة ومشفرة للرقابة الإشعاعية": "100% Secure & Encrypted Radiation Protection Portal", "1. لوحة التحكم والتحليلات": "1. Dashboard & Analytics", "1. لوحة التحكم والمقارنات": "1. Dashboard & Analytics", "2. استعراض المنشآت والكوادر": "2. Facilities & Personnel", "3. جدول مواعيد القراءات": "3. Readings Schedule & Matrix", "4. الكوادر الطبية والمشتركون": "4. Medical Staff & Subscribers", "2. المشتركون والمنشآت": "2. Subscribers & Facilities", "5. كشف استلام وتسليم الوضحات": "5. Badge Handover Manifest", "3. كشف استلام وتسليم الوضحات": "3. Badge Handover Manifest", "6. استيراد ملف قارئ OSL": "6. OSL Reader Import", "4. استيراد ملف قارئ OSL": "4. OSL Reader Import", "7. سجل واستعراض القراءات": "7. Readings & Doses Log", "5. سجل واستعراض القراءات": "5. Readings & Doses Log", "8. استخراج التقارير الرسمية": "8. Official Reports Center", "6. استخراج التقارير الرسمية": "6. Official Reports Center", "9. الأرشيف وسجل السنوات": "9. Historical Dose Archive", "7. الأرشيف وسجل السنوات": "7. Historical Dose Archive", "فترات الأقسام": "Dept Monitoring Cycles", "السنة:": "Year:", "السنة التشغيلية:": "Operating Year:", "حسابات المنشآت": "Facility Accounts", "دخول": "Login", "خروج": "Logout", "الداكن": "Dark", "الفاتح": "Light", "تحديث": "Refresh", "بحث": "Search", "مسح": "Clear", "إغلاق": "Close", "حفظ": "Save", "إلغاء": "Cancel", "تأكيد": "Confirm", "طباعة": "Print", "تصدير": "Export", "تحميل": "Download", "استيراد": "Import", "الرئيسية": "Dashboard", "المنشآت": "Facilities", "المواعيد": "Schedule", "الكوادر": "Staff", "الجرعات": "Doses", "التقارير": "Reports", "الكشف": "Manifest", "اسم المستخدم أو البريد الإلكتروني:": "Username or Email:", "اسم المستخدم أو البريد الإلكتروني": "Username or Email", "كلمة المرور:": "Password:", "كلمة المرور": "Password", "تسجيل الدخول للمنظومة": "Sign In to System", "إظهار": "Show", "إخفاء": "Hide", "يرجى إدخال اسم المستخدم أو البريد الإلكتروني وكلمة المرور": "Please enter your username/email and password", "جار التحقق...": "Authenticating...", "فشل تسجيل الدخول": "Login Failed", "لوحة التحكم الشاملة والرقابة الإشعاعية": "Comprehensive Radiation Safety Dashboard", "المشتركون النشطون": "Active Subscribers", "الأقسام المراقبة": "Monitored Departments", "المستشفيات المتعاقدة": "Contracted Facilities", "فحوصات وضحات القسطرة": "Cath Lab Double Badges", "إجمالي القراءات الموثقة": "Recorded Dosimetry Readings", "المعدل العام للجرعات": "Overall Dose Average", "مؤشر نبض وتوزيع الجرعات اللحظي": "Real-Time Dose Pulse & Distribution", "منحنيات مستويات الجرعات الإشعاعية التراكمية (Hp10)": "Cumulative Dose Trend Curves (Hp10)", "توزيع متوسط وأعلى الجرعات المسجلة بالمللي سيفرت (mSv)": "Distribution of average and maximum recorded doses in mSv", "الحد الآمن: 1.67 mSv/شهر": "Safe Limit: 1.67 mSv/month", "دليل فهم المنحنى للمستخدم العادي:": "Reading Guide for General Users:", "منحنى القسطرة (البرتقالي):": "Cath Lab Curve (Orange):", "مسار جرعات أقسام القسطرة الشهرية (الأعلى عرضة للإشعاع)": "Monthly Cath Lab dose trend (higher exposure potential)", "منحنى الأشعة (السماوي):": "Radiology Curve (Cyan):", "مسار أقسام الأشعة الربعية العامة": "General quarterly diagnostic radiology trend", "المتوسط السنوي العام (الأخضر):": "Annual Average (Green):", "المعدل التراكمي لجميع الكوادر الطبية بالمنظومة": "Cumulative average across all monitored medical personnel", "التحليل الهرمي والمقارنة الشاملة للجرعات والمشتركين": "Hierarchical Dose & Personnel Analytics", "المستشفى المستهدف:": "Selected Facility:", "جميع المستشفيات": "All Facilities", "-- جميع المستشفيات --": "-- All Facilities --", "جميع الأقسام": "All Departments", "-- جميع الأقسام --": "-- All Departments --", "المعيار المعروض:": "Displayed Metric:", "عدد الكوادر والمشتركين": "Subscriber Count", "الجرعة التراكمية (Hp10)": "Cumulative Dose (Hp10)", "توزيع المشتركين في كل مستشفى بأعمدة ملونة": "Subscriber Distribution per Facility (Colored Bars)", "مقارنة الجرعات التراكمية (Hp10) بين المستشفيات بأعمدة ملونة": "Cumulative Dose Comparison (Hp10) per Facility", "ترتيب المنشآت": "Facility Rankings", "المشتركون": "Subscribers", "الجرعة (mSv)": "Dose (mSv)", "المقارنة التفصيلية للمستشفيات والمراكز المتعاقدة": "Detailed Contracted Facilities Comparison", "استعراض المنشآت والكوادر والقراءات": "Facilities, Staff & Readings Drilldown", "استعراض تفصيلي للمستشفيات والشركات المتعاقدة مرتبة حسب آخر قراءة مسجلة مع إمكانية استعراض المشتركين وقراءاتهم الفردية.": "Detailed overview of contracted hospitals and medical centers sorted by most recent reading date with individual staff dosimetry records.", "المنشآت المسجلة": "Registered Facilities", "إجمالي الكوادر النشطة": "Total Active Personnel", "إجمالي القراءات في السنة": "Annual Total Readings", "تنبيهات الجرعة (>1.67)": "Dose Alerts (> 1.67)", "ترتيب المنشآت حسب:": "Sort Facilities By:", "آخر قراءة مسجلة للمستشفى (الأحدث أولاً)": "Latest Reading Date (Most Recent First)", "الأكثر كوادراً طبية": "Highest Subscriber Count", "اسم المنشأة أبجدياً": "Facility Name (A-Z)", "بحث سريع في المنشآت:": "Quick Facility Search:", "ابحث باسم المستشفى أو الكود...": "Search hospital name or code...", "استعراض الكوادر وسجل القراءات التفصيلي": "View Staff & Detailed Readings", "كوادر وقراءات المنشأة": "Facility Personnel & Dosimetry Records", "بحث باسم المشترك...": "Search subscriber name...", "جدول مواعيد القراءات ومصفوفة الالتزام الدوري": "Periodic Readings Schedule & Compliance Matrix", "جدول شهري وربعي شامل لمتابعة مواعيد استلام وقراءة وضحات المراكز والمستشفيات المشاركة والتنبيه بالمواعيد المستحقة والمتأخرة.": "Comprehensive monthly & quarterly matrix tracking badge intake, reading schedules, due reminders, and overdue follow-up alerts across all participating facilities.", "طباعة الجدول": "Print Schedule", "تصدير إكسل": "Export Excel", "نسبة الالتزام بالمواعيد": "On-Time Compliance Rate", "فترات تمت قراءتها": "Completed Periods", "مستحقة للمتابعة الآن": "Due For Intake Now", "فترات متأخرة عن موعدها": "Overdue Periods", "تم الفحص والاعتماد": "Processed & Verified", "فترة الدورية الحالية": "Current Cycle Window", "تتطلب اتصال فوري بالمنشأة": "Requires Immediate Facility Follow-up", "نوع الدورية:": "Cycle Frequency:", "جميع الأقسام (شهري + ربعي)": "All Departments (Monthly + Quarterly)", "الأقسام الشهرية فقط (قسطرة)": "Monthly Departments Only (Cath Lab)", "الأقسام الربعية فقط (أشعة)": "Quarterly Departments Only (Radiology)", "طريقة عرض المصفوفة:": "Matrix View Mode:", "عرض شامل": "Comprehensive View", "الأرباع (Q1..Q4)": "Quarterly (Q1..Q4)", "الشهري (1..12)": "Monthly (1..12)", "بحث بالمركز أو القسم:": "Search Center or Department:", "اسم المركز أو القسم...": "Center or department name...", "دلالات الرموز:": "Status Legend:", "تمت القراءة بنجاح": "Completed Successfully", "مستحقة في الفترة الحالية": "Due in Current Period", "متأخرة عن الموعد (تذكير)": "Overdue (Reminder Needed)", "فترة قادمة": "Upcoming Period", "غير مطلوبة لهذه الدورية": "Not Applicable for Cycle", "تنبيه المتابعة والتذكير بالمواعيد المتأخرة:": "Overdue Reading Follow-Up & Reminder Notice:", "سجل الكوادر والمشتركين والوضحات": "Personnel, Subscribers & Badge Registry", "إدارة المشتركين النشطين والمستقيلين وتعديل سيريالات الوضحات وتعيين الأقسام.": "Manage active and resigned subscribers, badge serial numbers, and department assignments.", "إضافة مشترك جديد": "Add New Subscriber", "حذف المشتركين المحددين": "Delete Selected Subscribers", "استيراد ملف إكسل مخصص": "Import Custom Excel", "تحميل النموذج القياسي": "Download Standard Template", "تصدير Excel": "Export Excel", "طباعة الكشف": "Print List", "المستشفى:": "Facility:", "القسم:": "Department:", "الحالة:": "Status:", "نوع الوضحة:": "Badge Type:", "بحث بالاسم أو الرقم الوطني:": "Search by Name or National ID:", "ابحث بالاسم أو الرقم الوطني...": "Search name or national ID...", "الجميع": "All", "نشط": "Active", "مستقيل": "Resigned", "صدرية": "Chest Only", "ثنائية (OA+UA)": "Double (OA+UA)", "ثنائية": "Double", "تعديل": "Edit", "استقالة": "Resign", "إلغاء الاستقالة": "Reinstate", "سجل الجرعات": "Doses Log", "الكود": "Code", "كود النظام": "System Code", "المستشفى / المنشأة": "Hospital / Facility", "المستشفى / القسم": "Hospital / Department", "المنشأة والقسم": "Facility & Department", "المنشأة": "Facility", "الأقسام": "Departments", "الحصة %": "Share %", "وضحتين": "Double Badges", "أعلى جرعة": "Max Dose", "إجراء": "Action", "إجراءات": "Actions", "اسم المشترك": "Subscriber Name", "الرقم الوطني / الوظيفي": "National / Employee ID", "الرقم الوطني": "National ID", "المسمى الوظيفي": "Job Title", "المسمى": "Job Title", "سيريال الصدرية (OA)": "Chest Serial (OA)", "سيريال الداخلية (UA)": "Under-Apron Serial (UA)", "سيريال الصدرية": "Chest Serial", "سيريال الداخلية": "Under-Apron Serial", "سيريال الوضحة": "Badge Serial", "تاريخ البدء": "Start Date", "تاريخ القراءة": "Reading Date", "الفترة": "Period", "Hp(10) الفعالة": "Hp(10) Deep Dose", "Hp(0.07) السطحية": "Hp(0.07) Shallow Dose", "التراكمي السنوي": "Annual Cumulative", "الملاحظة": "Remark", "حالة الوضحة": "Badge Status", "استلام الصدرية": "Chest Handover", "استلام الداخلية": "UA Handover", "ملاحظات": "Notes", "عدد الفترات المقروءة": "Read Periods Count", "الجرعة السنوية Hp(10)": "Annual Hp(10)", "الجرعة السنوية Hp(0.07)": "Annual Hp(0.07)", "حالة الحد السنوي (20 mSv)": "Annual Limit Status (20 mSv)", "الدورية": "Frequency", "شهري": "Monthly", "ربعي": "Quarterly", "كشف استلام وتسليم الوضحات الميداني (Reception Manifest)": "Field Badge Handover & Reception Manifest", "كشف تسليم واستلام الوضحات الميداني للمستشفيات مع إمكانية التأشير والطباعة والتوثيق.": "Official field handover manifest for dosimeters with check-off, printing, and verification.", "القسم المستهدف:": "Target Department:", "الفترة المستهدفة:": "Target Period:", "حفظ واعتماد الكشف": "Save & Verify Manifest", "طباعة كشف الاستلام والتسليم": "Print Handover Manifest", "مستلمة": "Received", "لم تُسلّم": "Not Received", "مفقودة": "Lost", "تالفة": "Damaged", "وضحة جديدة": "New Badge", "تم الاستلام والتسليم": "Received & Delivered", "استيراد ومعالجة ملف قارئ OSL (InLight Reader)": "OSL Reader Raw Data Import & Processing", "رفع ملفات مخرجات جهاز قراءة الوضحات OSL واحتساب الجرعات الفعالة والسطحية ومطابقة السيريالات.": "Upload raw OSL dosimeter reader files to calculate deep/shallow doses and automatically match badge serials.", "1. رفع ملف جهاز الـ OSL": "1. Upload OSL Reader File", "اختر ملف القارئ (CSV أو TXT أو XLS):": "Select Reader File (CSV, TXT, or XLS):", "معالجة واستخراج الجرعات": "Process & Extract Doses", "2. تقرير المطابقة والمعاينة": "2. Reconciliation & Matching Report", "مطابقة ناجحة": "Matched Successfully", "سيريالات غير مسجلة": "Unmatched Serials", "3. احتساب الجرعات واعتمادها": "3. Calculate & Commit Doses", "اعتماد القراءات وترحيلها للسجل": "Commit Readings to Official Registry", "سجل واستعراض القراءات والجرعات (قبل التصدير)": "Readings & Dose Registry (Review & Audit)", "تدقيق قراءات الوضحات والجرعات المحسوبة والتراكمية لكل مستشفى وقسم.": "Audit calculated and cumulative deep and shallow doses per facility and department.", "إضافة قراءة يدوية": "Add Manual Reading", "الانتقال لتصدير التقارير": "Proceed to Reports Export", "معتمدة ومحسوبة": "Verified & Calculated", "لم تُعد (NR)": "Not Returned (NR)", "غير مدخلة": "Pending Entry", "طبيعية": "Normal", "تنبيه تجاوز": "Exceedance Alert", "مركز استخراج التقارير الرسمية والنماذج المعتمدة": "Official Reports & Radiation Certificates Center", "استخراج وتصدير تقارير الجرعات الدورية بصيغ Excel و Word و PDF والطباعة المباشرة.": "Generate and export official periodic dosimetry reports in Excel, Word, PDF, or direct printing.", "نوع التقرير:": "Report Type:", "تقرير شهري رسمي": "Official Monthly Report", "تقرير ربع سنوي رسمي": "Official Quarterly Report", "كشف تسليم واستلام رسمي": "Official Handover Manifest", "كشف الجرعات السنوي التراكمي": "Annual Cumulative Dose Certificate", "تحميل Excel": "Download Excel", "تحميل Word": "Download Word", "تحميل PDF": "Download PDF", "معاينة وطباعة مباشرة": "Preview & Print", "الأرشيف وسجل السنوات التراكمي (Annual Dose History)": "Annual Cumulative Dose Archive & History", "سجل الجرعات التراكمية السنوية لكل مشترك عبر السنوات وتتبع حد الأمان السنوي (20 mSv).": "Historical annual cumulative dose tracking across multiple operating years (20 mSv safety threshold).", "إجمالي الكوادر المؤرشفة": "Total Archived Personnel", "متوسط الجرعة السنوية": "Average Annual Dose", "تجاوز الحد السنوي (≥20 mSv)": "Exceeded Annual Limit (≥20 mSv)", "تصدير إكسل شامل": "Export Full Archive to Excel", "ضمن الحد الطبيعي": "Within Safe Limits (< 20 mSv)", "تجاوز الحد السنوي": "Exceeded Annual Limit (≥ 20 mSv)", "بيانات المشترك": "Subscriber Information", "الاسم الكامل:": "Full Name:", "الرقم الوطني:": "National ID:", "المسمى الوظيفي:": "Job Title:", "المستشفى / المركز:": "Facility / Center:", "سيريال الوضحة الصدرية (OA):": "Chest Badge Serial (OA):", "تفعيل وضحة داخلية تحت المريلة (UA) لقسم القسطرة": "Enable Under-Apron Badge (UA) for Cath Lab", "سيريال الوضحة الداخلية (UA):": "Under-Apron Badge Serial (UA):", "تاريخ بدء الاشتراك:": "Subscription Start Date:", "حفظ المشترك": "Save Subscriber", "إدارة حسابات المنشآت الطبية (Hospital Accounts)": "Manage Medical Facility Accounts", "إضافة حساب مستشفى جديد": "Add New Facility Account", "اسم المستخدم:": "Username:", "تأكيد كلمة المرور:": "Confirm Password:", "المنشأة التابعة:": "Associated Facility:", "إنشاء الحساب": "Create Account", "تعديل فترات الأقسام والوضحات المزدوجة": "Configure Department Monitoring Cycles & Badges", "اسم القسم:": "Department Name:", "دورية القراءة:": "Reading Frequency:", "وضحة ثنائية": "Double Badge", "إضافة قسم": "Add Department", "حفظ الإعدادات": "Save Settings", "استيراد كوادر من ملف إكسل": "Import Subscribers from Excel", "اختر ملف الإكسل:": "Select Excel File:", "بدء الاستيراد": "Start Import", "تنبيه تأكيد الحذف": "Confirm Deletion", "هل أنت متأكد من رغبتك في حذف هذا العنصر؟": "Are you sure you want to delete this item?", "نعم، احذف": "Yes, Delete", "إلغاء الأمر": "Cancel", "سجل قراءات المشترك": "Subscriber Readings History", "إجمالي المشتركين": "Total Subscribers", "لا توجد بيانات متاحة": "No data available", "جاري التحميل...": "Loading...", "تم الحفظ بنجاح": "Saved successfully", "حدث خطأ": "An error occurred", "كافة القراءات تقع في النطاق الآمن (< 1.67 mSv)": "All readings within safe operational limits (< 1.67 mSv)", "كافة القراءات تقع في النطاق الآمن (&lt; 1.67 mSv)": "All readings within safe operational limits (< 1.67 mSv)", "الحد السنوي للتعرض المهني": "Annual Occupational Exposure Limit", "20 ملي سيفرت (mSv)": "20 millisievert (mSv)", "+ إضافة قسم جديد لمنشأة:": "+ Add New Department to Facility:", "0 تجاوزات للحد السنوي (20 mSv)": "0 Exceedances of Annual Limit (20 mSv)", "0 مشترك": "0 Subscribers", "1. استلام": "1. Intake", "2. قراءة": "2. Reading", "3. احتساب": "3. Calculation", "4. تقارير": "4. Reports", "آمن (<0.1)": "Safe (<0.1)", "آمنة وممتثلة 100%": "100% Safe & Compliant", "أرشيف وسجل السنوات الإشعاعية السابقة": "Previous Years Radiation Archive & History", "أشعة دورية": "Periodic Radiology", "أطباء وفنيو القسطرة القلبية التداخلية يقفون قرب أنبوب الأشعة السينية مباشرة ويضعون مريول الرصاص الواقي. لحساب الجرعة بدقة تامة يعتمد النظام معادلة نيكلاوسن (Niklason) العالمية:": "Interventional cardiologists and technicians stand directly near the X-ray tube wearing lead aprons. For precise dose calculation, the system uses the global Niklason formula:", "أعلى جرعة Hp(10)": "Highest Hp(10) Dose", "أعلى جرعة مرصودة:": "Highest Recorded Dose:", "أقسام الأشعة التشخيصية والعامة والطب النووي": "Diagnostic Radiology, General Imaging & Nuclear Medicine", "أقسام الأشعة العامة والتشخيصية:": "General Diagnostic Radiology Departments:", "أقسام القسطرة (Cath Lab):": "Cath Lab Departments:", "أقسام القسطرة (الوضحتين)": "Cath Lab (Double Badges)", "أقسام القسطرة القلبية التداخلية (Cath Lab)": "Interventional Cath Lab Departments", "أو": "or", "أو اختر القسم الافتراضي للمشتركين:": "Or choose default department for subscribers:", "أول 10": "First 10", "أول 50": "First 50", "إجمالي المشتركين بالسنة": "Total Annual Subscribers", "إدارة المشتركين والمنشآت": "Subscribers & Facilities Management", "إدارة حسابات المستشفيات": "Hospital Accounts Management", "إدارة حسابات المستشفيات والمراكز المتعاقدة": "Manage Contracted Facility Accounts", "إضافة / تعديل قراءة يدوية": "Add / Edit Manual Reading", "إضافة حساب مستخدم لمنشأة جديدة:": "Add user account for a new facility:", "إضافة مشترك جديد وتسجيل الوضحة": "Add New Subscriber & Register Badge", "إضافة وتعديل المشتركين، تسجيل أرقام السيريال، الاستيراد من إكسل، وإدارة الاستقالات والحذف الجماعي.": "Add & edit subscribers, register serials, import from Excel, and manage resignations and bulk deletions.", "إعداد فترات قراءة الأقسام والوضحات": "Configure Department Reading Periods & Badges", "إعداد فترات قراءة الأقسام ونوعية الوضحات": "Configure Department Reading Periods & Badge Types", "إعداد كشف استلام رسمي لكل مستشفى وقسم ودورة، مع تسجيل حالة الوضحات المرتجعة، والطباعة الرسمية للتوقيع.": "Prepare official manifest for each hospital, department and cycle, with return status tracking and official signature printing.", "إعدادات السنة التشغيلية": "Operating Year Settings", "إعدادات النظام والسنة التشغيلية النشطة": "System & Active Operating Year Settings", "إفراغ قاعدة البيانات": "Purge Database", "إفراغ قاعدة البيانات وإعادة الضبط": "Database Reset & Purge", "إفراغ كافة البيانات الآن": "Purge All Data Now", "إنشاء وتفعيل الحساب": "Create & Activate Account", "احتساب آلي لمعادلة نيكلاوسن": "Automated Niklason Formula Calculation", "اختر القسم الإشعاعي:": "Select Radiation Department:", "اختر المستشفى / المركز:": "Select Facility / Center:", "اختر المستشفى / المنشأة:": "Select Facility / Hospital:", "اختر المستشفى ثم القسم؛ وسيقوم النظام": "Select facility then department; the system will", "اختر المشترك:": "Select Subscriber:", "اختر ملف الإكسل من جهازك:": "Select Excel file from your computer:", "اختر ملف القارئ الصادر من الجهاز:": "Select reader file exported from device:", "استخراج وتحميل التقارير الرسمية المعتمدة": "Export & Download Official Approved Reports", "استرجاع الوضحات المرتجعة من المستشفيات": "Badge Returns Handover from Hospitals", "استيراد بيانات الكوادر من ملف Excel مخصص": "Import Personnel from Custom Excel File", "استيراد قراءات قارئ OSL ومعالجتها": "Import & Process OSL Reader Readings", "استيراد ملف قارئ OSL واحتساب الجرعات": "Import OSL Reader File & Calculate Doses", "اسم المشترك:": "Subscriber Name:", "اسم المنشأة": "Facility Name", "اسم المنشأة:": "Facility Name:", "اسم المنشأة أو الكود...": "Facility name or code...", "اسم المنشأة أو كودها": "Facility name or code", "اسم المنشأة...": "Facility name...", "اسم المستخدم": "Username", "اسم المستخدم (للدخول):": "Username (for login):", "اسم المستخدم أو الإيميل...": "Username or email...", "اسم المستخدم أو البريد:": "Username or Email:", "اسم كامل": "Full Name", "اشتباه تلوث / إعادة قراءة": "Suspected Contamination / Re-read", "الأقسام المتاحة للمنشأة": "Available Facility Departments", "الأقسام المسجلة": "Registered Departments", "الأقسام النشطة": "Active Departments", "الأقسام والكوادر": "Departments & Staff", "الأقسام:": "Departments:", "الأكثر استهلاكاً للجرعة": "Highest Dose Exposure", "الأكثر كوادراً": "Most Personnel", "الأمان والحدود": "Safety & Limits", "الامتثال والحدود الإشعاعية": "Compliance & Radiation Thresholds", "الانتقال إلى كشف الاستلام والتسليم": "Proceed to Handover Manifest", "الانتقال لاستيراد ملف القارئ": "Proceed to Reader File Import", "البريد الإلكتروني:": "Email Address:", "البريد...": "Email...", "البيانات الأساسية": "Primary Details", "التحقق والاعتماد": "Verification & Approval", "التراكمي": "Cumulative", "التراكمي السنوي (Hp10)": "Annual Cumulative (Hp10)", "التراكمي السنوي:": "Annual Cumulative:", "التصنيف": "Classification", "التصنيف:": "Classification:", "التقرير الرسمي الشهري (PDF/Excel)": "Official Monthly Report (PDF/Excel)", "التقرير الرسمي الربع سنوي (PDF/Excel)": "Official Quarterly Report (PDF/Excel)", "التقرير الربع سنوي (Q1-Q4)": "Quarterly Report (Q1-Q4)", "التقرير الشهري (M1-M12)": "Monthly Report (M1-M12)", "الجميع (نشط + مستقيل)": "All (Active + Resigned)", "الجرعة التراكمية السنوية": "Annual Cumulative Dose", "الجرعة السنوية": "Annual Dose", "الجرعة السنوية الكلية": "Total Annual Dose", "الجرعة الفعالة": "Deep Dose", "الجرعة الفعالة Hp(10)": "Deep Dose Hp(10)", "الجرعة الممتصة": "Absorbed Dose", "الجرعات التراكمية": "Cumulative Doses", "الجرعات المعتمدة": "Approved Doses", "الجرعات والحدود": "Doses & Thresholds", "الحالة الوظيفية:": "Employment Status:", "الحصة الإجمالية": "Total Share", "الحد الأقصى للجرعة": "Maximum Dose Limit", "الحد السنوي الأقصى للتعرض المهني (20 mSv/سنة)": "Maximum Annual Occupational Limit (20 mSv/year)", "الحد السنوي المسموح به": "Permissible Annual Threshold", "الحد الشهري الموصى به (1.67 mSv)": "Recommended Monthly Threshold (1.67 mSv)", "الرقم الوطني / الوظيفي:": "National / Employee ID:", "الرقم الوطني أو الوظيفي": "National or Employee ID", "الرقم الوطني...": "National ID...", "السنة الحالية": "Current Year", "السنة المستهدفة:": "Target Year:", "العنوان": "Address", "العنوان والاتصال": "Address & Contact", "العنوان:": "Address:", "الفترة الحالية": "Current Period", "الفترة والنوع": "Period & Type", "الفترة:": "Period:", "القسم التابع له": "Assigned Department", "الكوادر المسجلة": "Registered Staff", "الكوادر والمشتركون": "Personnel & Subscribers", "المتبقي من الحد السنوي": "Remaining from Annual Limit", "المجموع الكلي": "Grand Total", "المستشفى": "Hospital", "المستشفى / المنشأة:": "Facility / Center:", "المستشفى والمنشأة:": "Facility / Hospital:", "المستشفيات المسجلة": "Registered Facilities", "المستشفيات والمراكز": "Hospitals & Centers", "المستخدمون النشطون": "Active Users", "المسؤول:": "Responsible Officer:", "المسمى...": "Job title...", "المطابقة التلقائية للسيريالات": "Automated Serial Reconciliation", "الملاحظات": "Notes / Remarks", "الملاحظة:": "Remark:", "الملاحظة...": "Remark...", "النسبة": "Percentage", "النسبة المئوية": "Percentage", "النموذج القياسي": "Standard Template", "الهاتف": "Phone", "الهاتف / الاتصال:": "Phone / Contact:", "الهاتف...": "Phone...", "الوضحات التالفة": "Damaged Badges", "الوضحات الدورية": "Periodic Badges", "الوضحات المزدوجة (القسطرة)": "Double Badges (Cath Lab)", "الوضحات المفقودة": "Lost Badges", "الوضحات قيد الفحص": "Badges Under Analysis", "الوضحة الصدرية": "Chest Badge", "الوضحة الصدرية (OA)": "Chest Badge (OA)", "الوضحة الداخلية": "Under-Apron Badge", "الوضحة الداخلية (UA)": "Under-Apron Badge (UA)", "الوضحة المزدوجة": "Double Badge", "انقر للاستعراض": "Click to View", "انقر للتعديل": "Click to Edit", "اهتزاز وضحة": "Badge Vibration", "بدون ملاحظات": "No remarks", "بريد إلكتروني...": "Email...", "بيانات الاتصال": "Contact Details", "بيانات الاعتماد": "Credentials", "بيانات المنشأة": "Facility Information", "تأكيد إفراغ قاعدة البيانات": "Confirm Database Reset", "تأكيد الحذف": "Confirm Delete", "تأكيد كلمة المرور": "Confirm Password", "تاريخ": "Date", "تاريخ الاستلام": "Received Date", "تاريخ الاستلام:": "Intake Date:", "تاريخ التسليم": "Handover Date", "تاريخ البدء:": "Start Date:", "تاريخ القراءة:": "Reading Date:", "تجاوز حد المراقبة": "Exceeded Investigation Level", "تحديث البيانات": "Refresh Data", "تحديث القراءة": "Update Reading", "تحديث المشترك": "Update Subscriber", "تحميل تقرير كامل": "Download Full Report", "تخصيص الفترات": "Cycle Customization", "تعديل البيانات": "Edit Details", "تعديل المشترك": "Edit Subscriber", "تعيين كلمة المرور": "Set Password", "تفعيل": "Activate", "تفعيل السنة": "Activate Year", "تفعيل سنة جديدة:": "Activate New Year:", "تنبيه": "Alert", "تنبيه جرعة": "Dose Alert", "تنبيه: أعلى جرعة": "Alert: Max Dose", "تنبيه: تجاوز حد الرقابة": "Alert: Investigation Threshold Exceeded", "توليد التقرير": "Generate Report", "جدول الكوادر": "Staff Table", "جميع الفترات": "All Periods", "حالة الاعتماد": "Approval Status", "حالة الاستلام": "Intake Status", "حالة التسليم": "Handover Status", "حالة المشترك": "Subscriber Status", "حفظ التعديلات": "Save Changes", "حفظ التغييرات": "Save Changes", "حذف": "Delete", "حذف المشترك": "Delete Subscriber", "خطأ في الاتصال": "Connection Error", "خطأ في معالجة الملف": "File Processing Error", "دورية القراءة": "Reading Frequency", "دورية شهرية": "Monthly Cycle", "دورية ربعية": "Quarterly Cycle", "رقم الهاتف:": "Phone Number:", "رقم الوضحة": "Badge Number", "رقم الوضحة الصدرية": "Chest Badge Serial", "رقم الوضحة الداخلية": "Under-Apron Badge Serial", "سجل القراءات": "Readings Log", "سجل كامل": "Complete Log", "سنة": "Year", "سيريال": "Serial", "سيريال غير مطابق": "Unmatched Serial", "طباعة التقرير": "Print Report", "عرض الكل": "View All", "عرض التفاصيل": "View Details", "غير محدد": "Not Specified", "فحص دوري": "Periodic Monitoring", "فترة المراقبة": "Monitoring Period", "فشل الحفظ": "Save Failed", "قراءة جديدة": "New Reading", "قراءة طبيعية": "Normal Reading", "قسطرة قلبية": "Cardiac Cath Lab", "قسطرة وتداخل": "Interventional Cath Lab", "قائمة الأقسام": "Departments List", "قائمة المستشفيات": "Facilities List", "لا توجد نتائج مطابقة": "No matching results found", "لم تسجل قراءات": "No readings recorded", "لوحة التحكم": "Dashboard", "متوسط الجرعات": "Average Doses", "مستشفى": "Hospital", "مستشفى / منشأة": "Hospital / Facility", "معالجة الملف": "Process File", "معلومات المشترك": "Subscriber Info", "ملف إكسل": "Excel File", "ملف قارئ": "Reader File", "ملاحظة": "Remark", "منشأة جديدة": "New Facility", "منشأة طبية": "Medical Facility", "نسبة الإنجاز": "Completion Rate", "نشطون": "Active", "نظام الرصد": "Monitoring System", "نعم": "Yes", "لا": "No", "تنبيه أمان": "Safety Alert", "مستقيلون": "Resigned", "استعادة": "Restore", "استعراض وتدقيق السجلات والجرعات التراكمية السنوية لكل مشترك عبر السنوات السابقة مع التصدير المباشر.": "Review and audit annual cumulative records and doses across past operating years with direct export.", "استيراد ملف إكسل مخصص (تعيين أعمدة حر)": "Custom Excel Import (Flexible Column Mapping)", "اسم القسم": "Department Name", "اسم القسم (مثال: الطب النووي)": "Department Name (e.g. Nuclear Medicine)", "اسم المسؤول / جهة الاتصال:": "Contact Officer / Person:", "اسم المستخدم (Username):": "Username:", "اسم المستخدم أو الإيميل": "Username or Email", "اسم المشترك الثلاثي أو الرباعي:": "Subscriber Full Name:", "اسم الموظف / المشترك": "Employee / Subscriber Name", "اعتماد القراءات وحفظها في قاعدة البيانات": "Verify readings and save to database", "افتتاح / تفعيل سنة تشغيلية جديدة": "Activate New Operating Year", "اكتب: تأكيد": "Type: Confirm", "الإجمالي: -- مشترك": "Total: -- Subscribers", "البريد الإلكتروني (Email):": "Email Address:", "البريد الإلكتروني": "Email Address", "التحليل الهيكلي والتراكمي (المستشفيات والأقسام والكوادر)": "Structural & Cumulative Analytics (Facilities, Depts, Personnel)", "الترتيب التفصيلي للقيم": "Detailed Value Rankings", "التوقيع: ...........................................": "Signature: ...........................................", "الحصة الإجمالية:": "Total Share:", "الخروج والعودة لشاشة الدخول": "Logout & Return to Login Screen", "الدورات الشهرية والربعية:": "Monthly & Quarterly Cycles:", "الرقم الوطني / الرقم الوظيفي:": "National ID / Employee Number:", "الرقم الوطني / الرقم الوظيفي": "National ID / Employee Number", "الرقم الوطني (10 أرقام للأردني أو رقم جواز السفر):": "National ID (10 digits for Jordanian or Passport Number):", "الرقم الوطني أو رقم الهوية": "National ID or Document Number", "السنوات التشغيلية": "Operating Years", "العنوان / الموقع:": "Address / Location:", "الفترة (1-12 للشهري، 1-4 للربعي):": "Period (1-12 Monthly, 1-4 Quarterly):", "الفترة الزمنية:": "Time Interval:", "القراءة السطحية:": "Shallow Dose Reading:", "القراءة العميقة:": "Deep Dose Reading:", "القسم التابع له المشترك داخل المنشأة:": "Subscriber Department inside Facility:", "القسم الداخلي:": "Internal Department:", "القسم المستهدف": "Target Department", "المسؤول والاتصال": "Officer & Contact", "المستشفيات والمراكز المشتركة": "Participating Hospitals & Centers", "المسمى الوظيفي المعتمد في المنشأة:": "Accredited Job Title in Facility:", "المسمى الوظيفي للمشترك": "Subscriber Job Title", "المطابقة وتوزيع الجرعات": "Reconciliation & Dose Distribution", "المعدل العام:": "Overall Average:", "الملاحظات الإدارية والفنية...": "Administrative & Technical Remarks...", "الملاحظات والتوصيات:": "Remarks & Recommendations:", "الملاحظة / سبب القراءة اليدوية:": "Remark / Reason for Manual Entry:", "الموقع:": "Location:", "الوضحة الصدرية (الخارجية):": "Chest Badge (External):", "الوضحة الداخلية (تحت المريول):": "Under-Apron Badge (Internal):", "الوضحة المزدوجة (القسطرة فقط):": "Double Badge (Cath Lab only):", "الوضحات": "Badges", "الوضحات الصدرية:": "Chest Badges:", "الوضحات المزدوجة:": "Double Badges:", "انقر هنا لاختيار أو إسقاط ملف قارئ OSL": "Click here to select or drag & drop OSL Reader File", "انقر هنا لاختيار ملف إكسل من جهازك": "Click here to select Excel file from your computer", "اهتزاز وضحة / حركة": "Badge movement / vibration", "بانتظار الفحص": "Pending Inspection", "بانتظار قراءة الوضحات": "Awaiting Badge Reading", "بصمة السيريال": "Serial Fingerprint", "تحميل نموذج الإكسل القياسي": "Download Standard Excel Template", "تاريخ بدء الاشتراك في المنظومة:": "Dosimetry Subscription Start Date:", "تاريخ ميلاد المشترك:": "Subscriber Date of Birth:", "تجاوز الحد السنوي (20 mSv)": "Exceeded Annual Limit (20 mSv)", "تجاوز حد التحقيق (1.67 mSv)": "Exceeded Investigation Level (1.67 mSv)", "تحذير: هذا الإجراء سيقوم بحذف كافة السجلات وإعادة ضبط النظام تماماً ولا يمكن التراجع عنه.": "Warning: This action will permanently erase all records and reset the system. This action cannot be undone.", "تحديث القائمة": "Refresh List", "تحديث بيانات المشترك": "Update Subscriber Data", "تعديل بيانات المشترك": "Edit Subscriber Information", "تعديل بيانات المنشأة": "Edit Facility Information", "تعديل دورية القسم": "Edit Department Monitoring Cycle", "تعديل سيريال الوضحة": "Edit Badge Serial", "تعديل قراءة سابقة": "Edit Previous Reading", "تعديل وتحديث البيانات": "Edit & Update Data", "تفعيل الوضحة المزدوجة (القسطرة)": "Enable Double Badge (Cath Lab)", "تنبيه أمان إشعاعي": "Radiation Safety Alert", "تنبيه: يوجد قراءات مسجلة تجاوزت حد المراقبة": "Alert: Recorded readings exceeded investigation threshold", "توليد تقرير رسمي": "Generate Official Report", "حفظ وإغلاق": "Save & Close", "حذف المشترك نهائياً": "Permanently Delete Subscriber", "حذف المشتركين المحددين نهائياً": "Permanently Delete Selected Subscribers", "رقم الهاتف": "Phone Number", "سجل قراءات الوضحات السابقة": "Previous Badge Readings Log", "سنة تشغيلية": "Operating Year", "طباعة كشف": "Print Manifest", "طلب تغيير كلمة المرور": "Request Password Change", "عرض الكوادر": "View Personnel", "عرض تقرير كامل": "View Full Report", "فحص وضحات": "Badge Inspection", "قراءة صفرية (خلفية طبيعية)": "Zero Reading (Natural Background)", "قسطرة قلبية تداخلية": "Interventional Cardiology (Cath Lab)", "قيد المعالجة": "Processing", "كافة القراءات تقع في النطاق الآمن": "All readings within safe operational limits", "كود المنشأة": "Facility Code", "كود المنشأة:": "Facility Code:", "كود المنشأة...": "Facility code...", "لا توجد كوادر مسجلة": "No personnel registered", "لا توجد منشآت مسجلة": "No facilities registered", "لا توجد قراءات مسجلة": "No readings recorded", "مسؤول الوقاية الإشعاعية": "Radiation Safety Officer (RSO)", "معتمد": "Verified", "معتمدة": "Verified", "مرفوضة": "Rejected", "ملف غير صالح": "Invalid File", "منشأة": "Facility", "معلق": "Pending", "الجرعات التراكمية (mSv)": "Cumulative Doses (mSv)", "الجرعة التراكمية Hp(10)": "Cumulative Deep Dose Hp(10)", "الجرعة السطحية Hp(0.07)": "Shallow Dose Hp(0.07)", "الجرعة السطحية Hp(0.07) mSv:": "Shallow Dose Hp(0.07) mSv:", "الجرعة السطحية Hp(0.07):": "Shallow Dose Hp(0.07):", "الجرعة العميقة Hp(10) mSv:": "Deep Dose Hp(10) mSv:", "الجرعة العميقة Hp(10):": "Deep Dose Hp(10):", "الجرعة الفعالة E = 0.025 × (وضحة فوق المريول OA) + 0.5 × (وضحة تحت المريول UA)": "Effective Dose E = 0.025 × (Over-Apron OA) + 0.5 × (Under-Apron UA)", "الحالة": "Status", "الحد الاسترشادي الشهري (1.67 mSv) — طالما المنحنيات تحته فالوضع آمن تماماً.": "Monthly advisory threshold (1.67 mSv) — fully safe and compliant as long as trends remain below it.", "الحسابات المفعلة حالياً للمستشفيات:": "Currently Active Facility Accounts:", "الخط المنقط السماوي:": "Cyan Dotted Line:", "الدورة / الشهر:": "Cycle / Month:", "الرقم التسلسلي للوضحة الداخلية (UA - Under Apron):": "Under-Apron Badge Serial Number (UA):", "الرقم التسلسلي للوضحة الصدرية (Serial Number):": "Chest Badge Serial Number:", "السنة التشغيلية النشطة حالياً في النظام:": "Current Active Operating Year in System:", "السنة الجديدة:": "New Year:", "السنة المراد أرشفتها:": "Archive Target Year:", "السيريال": "Serial", "العربية (Arabic - RTL)": "Arabic (RTL)", "العودة للمقارنة العامة": "Return to Global Overview", "القسم": "Department", "القوس الأخضر الداخلي:": "Inner Green Arc:", "القوس السماوي:": "Cyan Arc:", "القوس الوردي:": "Pink Arc:", "الكوادر تحت الرصد": "Monitored Personnel", "اللغة (Language):": "Language:", "المراحل التشغيلية الأربع": "Four Operational Phases", "المستشفى والقسم": "Facility & Department", "المستلم بالمختبر:": "Lab Intake Officer:", "المسلّم من المستشفى:": "Hospital Handover Officer:", "المسلّم من المنشأة:": "Facility Handover Officer:", "المشترك:": "Subscriber:", "المظهر (Theme):": "Theme:", "الملاحظات (Remark):": "الملاحظات (Remark): ", "الملخص الوقائي المباشر (للمسؤول والمستخدم العادي)": "Executive Radiation Safety Summary", "المنشأة:": "المنشأة: ", "الموضع": "Position", "النشطون فقط": "Active Only", "النموذج الموحد": "Standard Template", "الوضحة الافتراضية": "Default Badge", "الوضع الداكن (Dark)": "Dark Mode", "الوضع الفاتح (Light)": "Light Mode", "انقر على أي قسم لعرض موظفيه": "Click on any department to display its personnel", "بحث باسم المشترك أو الكود...": "Search باسم المشترك أو الكود...", "بحث بالاسم أو الكود أو السيريال...": "Search بالاسم أو الكود أو السيريال...", "بحث بالاسم، الرقم الوطني، الكود الإشعاعي، أو السيريال...": "Search بالاسم، الرقم الوطني، الكود الإشعاعي، أو السيريال...", "بحث بالمشترك أو الكود:": "Search subscriber or code:", "بدء الاستيراد وحفظ المشتركين": "Start Import & Save Subscribers", "بصيغتي Word و Excel المعتمدة": "In verified Word and Excel formats", "بطاقات": "Cards", "بيانات كل قسم وكوادره مع الجرعات التراكمية الحالية": "Department records and personnel with current cumulative doses", "بيانات وكوادر وتقارير مستشفاه فقط": "records, staff, and reports for their facility only", "تأكيد الاستقالة": "Confirm Resignation", "تأكيد الحذف النهائي للمشتركين": "Confirm Permanent Deletion of Subscribers", "تاريخ الاستقالة / الانفكاك:": "Resignation / Departure Date:", "تاريخ الاستلام الفعلي:": "Actual Intake Date:", "تبديل المظهر": "تبديل المظهر", "تجاوز الحد (>1.67)": "Exceeded Threshold (> 1.67)", "تحديد الكل": "Select All", "تحذير قطعي:": "Irreversible Action Warning:", "تحليل الملف ومطابقة الوضحات": "Parse File & Match Badges", "تحليل تفصيلي لعدد الأقسام والمشتركين والجرعات لكل منشأة": "Detailed analysis of departments, subscribers, and doses per facility", "تدقيق قراءات الوضحات والجرعات المحسوبة والتراكمية لكل مستشفى وقسم، مع إمكانية التعديل اليدوي قبل التصدير.": "Audit badge readings, calculated doses, and cumulative totals per hospital and department with manual adjustment before export.", "تراجع": "Go Back", "ترجمة فورية لكافة المؤشرات والرسومات البيانية إلى حقائق وقائية واضحة ومباشرة": "Direct interpretation of operational indicators and charts into clear safety insights", "تسجيل / تعديل قراءة يدوية لمشترك": "Record / Edit Manual Reading for Subscriber", "تسجيل استقالة / نقل مشترك": "Record Resignation / Transfer of Subscriber", "تسجيل الخروج": "تسجيل الLogout", "تسجيل الدخول": "تسجيل الLogin", "تصدير أرشيف السنة إلى Excel": "Export Year Archive to Excel", "تصدير إلى Excel": "Export to Excel", "تصنيف المشتركين حسب الأقسام ونوعية الوضحات ومستويات الجرعة": "Classification of personnel by department, badge type, and dose levels", "تطوير وإشراف:": "Developed by:", "تعديل بيانات المشترك والوضحة": "Edit Subscriber & Badge Details", "تفسير مبسط لنسب المقياس (بيانات حقيقية):": "Simplified Guide to Gauge Metrics (Live Data):", "تفصيل الأقسام والكوادر التابعة": "Facility Departments & Personnel Breakdown", "تقيس الإشعاع الممتص عند عمق 0.07 مليمتر في الجلد والأطراف، وحدها السنوي المسموح": "Measures absorbed radiation at 0.07 mm depth in skin and extremities, with an allowable annual limit of", "تقيس كمية الإشعاع النافذ إلى عمق 10 مليمترات في الجسم لتقييم تعرض الأعضاء الحيوية الداخلية. الحد السنوي القانوني للعاملين هو": "Measures penetrating radiation at 10 mm depth in tissue to assess internal vital organ exposure. Legal annual occupational limit is", "تلقائياً بضبط نوع التقرير (شهري أو ربعي)": "Automatically configures report type (monthly or quarterly)", "تم التحديث بنجاح": "Updated Successfully", "تم تحديد": "Selected", "تم قراءة الأعمدة بنجاح. تأكد من تحديد الأعمدة التالية:": "Columns read successfully. Please verify the following column mappings:", "تم قراءتها": "Read & Processed", "تنبيه بالغ الأهمية:": "Critical Warning:", "تنزيل تقرير PDF المعتمد": "Download Official PDF Report", "تنزيل تقرير Word الرسمي": "Download Official Word Report", "تنزيل جدول Excel الرسمي": "Download Official Excel Report", "توزيع وامتثال المشتركين للأمان الإشعاعي": "Radiation Safety Compliance & Personnel Distribution", "تُعتمد تلقائياً في استيراد القارئ، كشوفات الاستلام، وتصدير التقارير.": "Applied automatically in reader import, manifests, and report exports.", "جاري تحميل قائمة المنشآت...": "Loading facilities list...", "جاهزية التقارير الرسمية": "Official Reports Readiness", "جدول": "Table", "جرعات فنيي الأشعة الروتينية، وتكون منخفضة جداً وقريبة من الصفر.": "Doses of routine diagnostic radiology technicians, consistently low and close to background.", "حالة الأمان العامة": "Overall Safety Status", "حفظ القراءة وتحديث التراكمي": "Save Reading & Update Cumulative", "حيث تحسب الوضحة الخارجية تعرض الرأس والعينين والغدة الدرقية، والوضحة الداخلية تعرض الجسم المحمي بالمريول، ويقوم النظام باحتسابها آلياً بنقرة زر!": "Where the external badge assesses exposure to head, eyes, and thyroid, and the internal badge assesses apron-shielded torso exposure. The system calculates this automatically with one click!", "د. أحمد - مسؤول الوقاية": "د. أحمد - مسؤول الوقاية", "دليل مصطلحات الرصد (Hp10 / Hp0.07 / الوضحتين)": "Dosimetry Terminology Guide (Hp10 / Hp0.07 / Two Badges)", "دليل مصطلحات الرصد والوقاية الإشعاعية للمستخدم العادي": "Radiation Protection & Dosimetry Glossary for General Users", "دورة الرصد المستهدفة للقراءة:": "Target Monitoring Cycle for Reading:", "دورة الرصد:": "Monitoring Cycle:", "دورة معالجة وقياس الوضحات الإشعاعية": "Dosimetry Processing & Measurement Workflow", "دوري / كل 3 شهور (Quarterly)": "Quarterly (Every 3 Months)", "دورية القسم: تلقائي": "Department Frequency: Auto", "دورية ربع سنوية (4 دورات في السنة، كل 3 شهور دورة) نظراً لانخفاض التعرض وثبات البيئة الوقائية.": "Quarterly cycle (4 cycles/year, every 3 months) due to lower exposure and consistent shielding.", "دورية شهرية (12 قراءة في السنة) نظراً لكثافة العمليات الجراحية والتداخلية.": "Monthly cycle (12 cycles/year) due to high procedural surgical and interventional volume.", "ربع سنوي (Quarterly)": "Quarterly (Q1..Q4)", "ربعي (3 شهور)": "Quarterly (3 Months)", "ربعي (Quarterly)": "Quarterly (Quarterly)", "رفع النموذج المعبأ": "Upload Filled Template", "رقم الدورة/الشهر:": "Cycle / Month Number:", "رقم الشهر (1-12):": "Month Number (1-12):", "سبب أو ملاحظات الاستقالة:": "Resignation Reason or Notes:", "سجل المستقيلين": "Resigned Registry", "سنوياً أو متوسط": "annually or an average of", "سيؤدي هذا الإجراء إلى مسح كافة المنشآت والأقسام وجميع المشتركين وسجلات القراءات والجرعات نهائياً من قاعدة البيانات.": "This action will permanently erase all facilities, departments, subscribers, and dose history from the database.", "سيتم حذف المشتركين المحددين نهائياً من النظام، بالإضافة إلى مسح كافة سجلات وضحاتهم وجرعاتهم الإشعاعية التراكمية المرتبطة بهم.": "The selected subscribers will be permanently deleted from the system along with all their badge records and cumulative dosimetry history.", "سيريال OA": "Serial OA", "سيريال UA": "Serial UA", "سيريال الداخلية (UA):": "سيريال الداخلية (UA): ", "سيريال الداخلية UA:": "سيريال الداخلية UA: ", "سيريال الصدرية / OA:": "سيريال الصدرية / OA: ", "سيريال الصدرية / الخارجية (OA):": "Chest / External Serial (OA):", "شهري (Monthly)": "Monthly (Monthly)", "شهرياً.": "monthly.", "صدرية مفردة": "Single Chest", "ضابط الوقاية / المندوب": "ضابط الوقاية / المندوب", "ضابط الوقاية الإشعاعية / مسؤول التسليم بالمستشفى": "Radiation Safety Officer (RSO) / Facility Handover Officer", "طباعة الكشف الرسمي": "Print Official Manifest", "طبيعي / OA+UA / تلف وضحة / LLD / تعديل يدوي...": "طبيعي / OA+UA / تلف وضحة / LLD / Edit يدوي...", "طريقة عرض السجل:": "Registry Display Mode:", "طريقة عرض الكوادر:": "Display Mode:", "عدد المشتركين": "Subscriber Count", "عدد المشتركين والجرعات لكل قسم بالمستشفى:": "Subscriber and dose counts for each hospital department:", "عدد المشتركين: 0": "Subscribers Count: 0", "عمود اسم القسم بالملف:": "Department Name Column in File:", "عمود اسم المستشفى بالملف:": "Hospital Name Column in File:", "عمود اسم المشترك (إلزامي):": "Subscriber Name Column (Required):", "عمود الرقم التسلسلي (Serial Number):": "Badge Serial Number Column:", "عمود الرقم الوطني / الوظيفي:": "National / Employee ID Column:", "عمود المسمى الوظيفي:": "Job Title Column:", "عمود تاريخ القراءة (Date):": "Reading Date Column:", "عمود تاريخ بدء الاشتراك:": "Subscription Start Date Column:", "عمود سيريال الداخلية UA:": "Under-Apron / UA Serial Column:", "عمود سيريال الصدرية / OA:": "Chest / OA Serial Column:", "عند انتهاء سنة، يمكنك فتح السنة التالية؛ ليتم اعتمادها كافتراضية لكافة النماذج والعمليات، وتنتقل السنة السابقة تلقائياً إلى الأرشيف.": "When a year ends, you can activate the next operating year; it will become default for all operations, and the past year archives.", "غير مسجل": "Unregistered", "غير مسجلة: 0": "Unregistered: 0", "فحص وقراءة أعمدة الجهاز": "Inspect & Read Device Columns", "فحص ومعاينة الأعمدة": "Verify & Inspect Columns", "فني مختبر OSL": "فني مختبر OSL", "فهمت ذلك، إغلاق": "Understood, Close", "في المربع أدناه:": "in the box below:", "قراءات مسجلة": "Recorded Readings", "قسطرة ثنائية": "Cath Lab Double Badge", "قم باختيار ملف القارئ ثم اضغط على \"تحليل الملف ومطابقة الوضحات\" لبدء التدقيق.": "Select reader file then click \"Parse File & Match Badges\" to begin reconciliation.", "كادر طبي": "Medical Personnel", "كشف استلام وتسليم الوضحات الإشعاعية": "Radiation Dosimeter Handover Manifest", "كشف استلام وتسليم وضحات الرصد الإشعاعي الفردي (OSL)": "Personal Radiation Dosimeter (OSL) Handover Manifest", "كلمة المرور (Password):": "كلمة المرور (Password): ", "كوادر القسطرة بنظام الوضحتين (OA خارجية + UA داخلية).": "Cath lab staff with two-badge protocol (External OA + Internal UA).", "كوادر طبية بجرعة شبه صفرية (< 0.1 mSv).": "Personnel with near-zero occupational dose (< 0.1 mSv).", "للتأكيد والمتابعة، يرجى كتابة كلمة": "To confirm and proceed, please type", "لماذا يرتدي كادر القسطرة القلبية وضحتين (نظام الوضحتين Double Badge)؟": "Why do cardiac cath lab personnel wear two badges (Double Badge protocol)?", "مؤشر نبض الرقابة الوقائية": "Radiation Protection Pulse Indicator", "ما هو الفرق بين الجرعة العميقة Hp(10) والجرعة السطحية Hp(0.07)؟": "What is the difference between Deep Dose Hp(10) and Shallow Dose Hp(0.07)?", "ما هي دورية قياس الأقسام؟": "What is the monitoring frequency for departments?", "متوافق مع لوائح هيئة الطاقة الذرية": "Compliant with Nuclear Regulatory Commission guidelines", "متوسط الحصة للمنشأة:": "Average Facility Share:", "مثال: 100234": "مثال: 100234", "مثال: 100235": "مثال: 100235", "مثال: انتهاء عقد، انتقال إلى مستشفى آخر...": "مثال: انتهاء عقد، انتقال إلى مستشفى آخر...", "مثال: د. عمر خالد أحمد": "مثال: د. عمر خالد أحمد", "مثلاً: khalidi_rpo": "مثلاً: khalidi_rpo", "مجموع الجرعات السنوية": "Annual Total Doses", "مسؤول استلام وفحص الوضحات بمختبر OSL": "OSL Dosimetry Laboratory Officer", "مسؤول الاتصال": "Contact Officer", "مسار جرعات أطباء وفنيي القسطرة لأنهم الأقرب للأشعة المباشرة أثناء العمليات.": "Dose trajectory for interventional cath lab personnel due to direct radiation exposure during procedures.", "مستوى الأمان": "Safety Level", "مشترك": "Subscriber", "مشترك محدد نهائياً؟": "selected subscribers permanently?", "مشترك وضحتين (OA + UA)": "Two-Badge Subscriber (OA + UA)", "مشترك وضحتين (صدرية خارجية OA + داخلية تحت المريلة UA)": "Two-badge subscriber (External Chest OA + Under-Apron UA)", "مشتركون": "Subscribers", "مطابقة وضحات القارئ التلقائية": "Automated Reader Badge Reconciliation", "مطابقة: 0": "Matched: 0", "مع حماية خصوصية بقية المنشآت.": "while safeguarding the privacy of other facilities.", "معاينة القراءات المطابقة:": "Preview Matched Readings:", "معاينة وطباعة رسمية (حفظ كـ PDF)": "Official Print & Preview (Save as PDF)", "معدل الامتثال الإشعاعي اللحظي": "Real-Time Radiation Safety Compliance Rate", "مقارنة تفصيلية لعدد المشتركين والجرعات التراكمية بأعمدة بيانية ملونة متدرجة": "Detailed comparison of subscribers and cumulative doses in vibrant gradient bar columns", "مقارنة شاملة بين المستشفيات والمراكز المتعاقدة": "Comprehensive Comparison of Contracted Hospitals & Centers", "مكتملة ومتاحة": "Ready & Available", "مكررة: 0": "Duplicates: 0", "ملاحظة تنظيمية:": "Organizational Notice:", "منحنى الأشعة (الوردي):": "Radiology Curve (Pink):", "منظومة الرصد الإشعاعي الفردي (OSL Dosimetry)": "منظومة الرصد الإشعاعي الفردي (OSL Dosimetry)", "منظومة الرصد الإشعاعي الفردي OSL (InLight)": "OSL Personal Radiation Dosimetry System (InLight)", "موزعون عبر المنشآت الطبية": "Distributed across medical facilities", "نسبة الكوادر الملتزمة بالرصد المسجل لها قراءات.": "Percentage of compliant personnel with active recorded readings.", "نسبة مشتركي الوضحتين (القسطرة)": "Cath Lab Double Badge Ratio", "نسخة احتياطية": "نسخة احتياطية", "نظام رصد ربع سنوي دوري (Quarterly كل 3 شهور) للوضحة الصدرية المفردة (CHEST) مع مطابقة حدود الأمان السنوية المعتمدة (20 mSv).": "Quarterly monitoring cycle (every 3 months) for single chest dosimeter (CHEST) compliant with 20 mSv annual occupational threshold.", "نظام رصد شهري دوري (Monthly) مع اعتماد وضحتين إلزاميتين (صدرية خارجية OA + داخلية تحت المريلة UA) واحتساب آلي للجرعة الفعالة.": "Monthly monitoring cycle with mandatory two-badge protocol (External Chest OA + Under-Apron UA) and automated effective dose calculation.", "نعم، احذف المشتركين نهائياً": "Yes, Permanently Delete Subscribers", "نوع التقرير (محدد تلقائياً):": "Report Type (Auto-Selected):", "نوع الدورة (تلقائي):": "Cycle Type (Auto):", "نوع الدورة:": "Cycle Type:", "نوع الوضحة": "Badge Type", "هل أنت متأكد من حذف": "Are you sure you want to delete", "وضحات مقروءة غير مسجلة لمشتركين:": "Read badges not registered to any active subscriber:", "وضحات مكررة في الملف (يرجى اختيار القراءة المعتمدة):": "Duplicate badges in file (please choose verified reading):", "وضحة مزدوجة": "Double Badge", "وضحتين (OA+UA)": "Double Badges (OA+UA)", "وفق طبيعة القسم المحددة بإعدادات النظام.": "According to department rules defined in system settings.", "يتم هنا تحديد دورية القراءة الافتراضية لكل قسم (مثل القسطرة شهري + وضحتين، والأشعة كل 3 شهور دوري)، وعند الانتقال لاستخراج التقارير أو كشف الاستلام سيتعرف النظام تلقائياً على دورية القسم دون الحاجة للتغيير اليدوي.": "Default monitoring frequency is set here for each department (e.g. Cath Lab monthly + double badges, Radiology quarterly). When exporting reports or manifests, the system automatically applies the correct schedule.", "يتيح لك هذا القسم إنشاء حساب دخول خاص بكل مستشفى باسم مستخدم أو بريد إلكتروني وكلمة مرور، بحيث يدخل مسؤول المستشفى ويرى": "This section allows creating a dedicated login account for each facility so that the facility officer only sees", "يدعم النظام ملفات قارئ Landauer InLight الأصلية (XLS و CSV) وملفات الإكسل المحولة.": "Supports native Landauer InLight reader output files (XLS, CSV) and Excel conversions.", "• تطوير وإشراف:": "• تطوير وإشراف: ", "بوابة تسجيل الدخول للرقابة الإشعاعية": "Radiation Protection Login Portal", "اتصال مشفر وآمن 100% بنظام الرصد والوقاية الإشعاعية": "100% Secure & Encrypted Radiation Safety Connection", "منظومة الرصد الإشعاعي الفردي OSL — سجل الجرعات والوقاية الإشعاعية": "OSL Personal Dosimetry System — Occupational Dose Registry & Radiation Safety", "كافة القراءات في النطاق الآمن (< 1.67 mSv)": "All readings in safe range (< 1.67 mSv)", "كافة القراءات في النطاق الآمن (&lt; 1.67 mSv)": "All readings in safe range (< 1.67 mSv)", "الحد: 1.67 mSv/شهر": "Limit: 1.67 mSv/month", "م. علاء الحبيس (Alaa Alhabees)": "Eng. Alaa Alhabees"};
 
-        't-app-title': dict.appTitle,
-        't-app-version-badge': isEn ? '<i class="bi bi-patch-check-fill me-1"></i>v6.5' : '<i class="bi bi-patch-check-fill me-1"></i>v6.5',
-        't-login-version': isEn ? '<i class="bi bi-patch-check-fill me-1"></i>Release: v6.5' : '<i class="bi bi-patch-check-fill me-1"></i>الإصدار: v6.5',
-        't-footer-ver': isEn ? 'Release: v6.5 Production' : 'الإصدار: v6.5 Production',
-        't-footer-dev': isEn ? 'Eng. Alaa Alhabees' : 'م. علاء الحبيس (Alaa Alhabees)',
+// Pre-sort dictionary keys by length descending for greedy phrase matching
+const SORTED_I18N_KEYS = Object.keys(MASTER_I18N_DICT).sort((a, b) => b.length - a.length);
 
-        't-app-subtitle': dict.appSubtitle,
-        't-tab-dash': dict.tabDash,
-        't-tab-facilities': dict.tabFacilities,
-        't-tab-schedule': dict.tabSchedule,
-        't-tab-subs': dict.tabSubs,
-        't-tab-rec': dict.tabRec,
-        't-tab-read': dict.tabRead,
-        't-tab-doses': dict.tabDoses,
-        't-tab-rep': dict.tabRep,
-        't-tab-arch': dict.tabArch,
-        't-nav-dept-config': dict.deptConfig,
-        't-nav-settings': dict.settingsYear,
-        't-nav-hosp-users': dict.hospUsers,
-        't-nav-login': dict.navLogin,
-        't-nav-logout': dict.navLogout,
-        'lblLang': dict.btnLang,
-        // Mobile bottom nav
-        'mNav-lbl-dash': dict.mNavDash,
-        'mNav-lbl-fac': dict.mNavFac,
-        'mNav-lbl-sch': dict.mNavSch,
-        'mNav-lbl-subs': dict.mNavSubs,
-        'mNav-lbl-doses': dict.mNavDoses,
-        'mNav-lbl-rep': dict.mNavRep,
-        // Facilities tab
-        't-fac-main-title': `<i class="bi bi-buildings-fill text-warning me-1"></i> ${dict.facMainTitle}`,
-        't-fac-main-desc': dict.facMainDesc,
-        't-fac-lbl-year': dict.facYear,
-        't-fac-lbl-sort': dict.facSort,
-        't-fac-lbl-search': dict.facSearch,
-        't-fac-btn-refresh': dict.facRefresh,
-        't-fac-kpi-1': dict.facKpi1,
-        't-fac-kpi-2': dict.facKpi2,
-        't-fac-kpi-3': dict.facKpi3,
-        't-fac-kpi-4': dict.facKpi4,
-        'opt-sort-latest': dict.facSortLatest,
-        'opt-sort-subs': dict.facSortSubs,
-        'opt-sort-name': dict.facSortName,
-        't-fac-badge-unit': dict.facUnit,
-        // Schedule tab
-        't-sch-main-title': `<i class="bi bi-calendar3-range-fill text-info me-1"></i> ${dict.schMainTitle}`,
-        't-sch-main-desc': dict.schMainDesc,
-        't-sch-btn-print': dict.schPrint,
-        't-sch-btn-export': dict.schExport,
-        't-sch-btn-refresh': dict.schRefresh,
-        't-sch-kpi-comp': dict.schKpiComp,
-        't-sch-kpi-done': dict.schKpiDone,
-        't-sch-kpi-due': dict.schKpiDue,
-        't-sch-kpi-overdue': dict.schKpiOverdue,
-        'schKpiCompletedDesc': dict.schKpiDoneDesc,
-        'schKpiDueDesc': dict.schKpiDueDesc,
-        'schKpiOverdueDesc': dict.schKpiOverdueDesc,
-        't-sch-lbl-year': dict.schYear,
-        't-sch-lbl-freq': dict.schFreq,
-        't-sch-lbl-mode': dict.schMode,
-        't-sch-lbl-search': dict.schSearch,
-        't-sch-legend-title': `<i class="bi bi-info-circle me-1"></i> ${dict.schLegendTitle}`,
-        't-sch-leg-done': dict.schLegDone,
-        't-sch-leg-due': dict.schLegDue,
-        't-sch-leg-overdue': dict.schLegOverdue,
-        't-sch-leg-upcoming': dict.schLegUpcoming,
-        't-sch-leg-na': dict.schLegNa,
-        't-sch-alert-title': dict.schAlertTitle,
-        // Section Titles & Subtitles
-        't-dash-main-title': dict.dashMainTitle,
-        't-dash-hosp-table-title': dict.dashHospTableTitle,
-        't-subs-title': dict.subsMainTitle,
-        't-subs-desc': dict.subsMainDesc,
-        't-rec-title': dict.recMainTitle,
-        't-rec-desc': dict.recMainDesc,
-        't-doses-title': dict.dosesMainTitle,
-        't-doses-desc': dict.dosesMainDesc,
-        't-rep-main-title': dict.repMainTitle,
-        't-rep-main-desc': dict.repMainDesc,
-        't-arch-main-title': dict.archMainTitle,
-        't-arch-main-desc': dict.archMainDesc,
-        // Table Headers - Subscribers
-        'th-s-num': dict.thSNum,
-        'th-s-code': dict.thSCode,
-        'th-s-name': dict.thSName,
-        'th-s-nat': dict.thSNat,
-        'th-s-hosp': dict.thSHosp,
-        'th-s-job': dict.thSJob,
-        'th-s-badge': dict.thSBadge,
-        'th-s-oa': dict.thSOa,
-        'th-s-ua': dict.thSUa,
-        'th-s-status': dict.thSStatus,
-        'th-s-start': dict.thSStart,
-        'th-s-actions': dict.thSActions,
-        // Table Headers - Doses
-        'th-d-num': dict.thDNum,
-        'th-d-code': dict.thDCode,
-        'th-d-name': dict.thDName,
-        'th-d-hosp': dict.thDHosp,
-        'th-d-badge': dict.thDBadge,
-        'th-d-serial': dict.thDSerial,
-        'th-d-hp10': dict.thDHp10,
-        'th-d-hp07': dict.thDHp07,
-        'th-d-accum': dict.thDAccum,
-        'th-d-date': dict.thDDate,
-        'th-d-remark': dict.thDRemark,
-        'th-d-status': dict.thDStatus,
-        'th-d-actions': dict.thDActions,
-        // Table Headers - Reception Manifest
-        'th-r-code': dict.thRCode,
-        'th-r-name': dict.thRName,
-        'th-r-job': dict.thRJob,
-        'th-r-badge': dict.thRBadge,
-        'th-r-oa': dict.thROa,
-        'th-r-st-oa': dict.thRStOa,
-        'th-r-ua': dict.thRUa,
-        'th-r-st-ua': dict.thRStUa,
-        'th-r-status': dict.thRStatus,
-        'th-r-notes': dict.thRNotes,
-        // Table Headers - Archive
-        'th-a-code': dict.thACode,
-        'th-a-name': dict.thAName,
-        'th-a-hosp': dict.thAHosp,
-        'th-a-job': dict.thAJob,
-        'th-a-badge': dict.thABadge,
-        'th-a-periods': dict.thAPeriods,
-        'th-a-hp10': dict.thAHp10,
-        'th-a-hp07': dict.thAHp07,
-        'th-a-status': dict.thAStatus,
-        // Table Headers - Hospital Comparison
-        'th-hosp-code': dict.thHCode,
-        'th-hosp-name': dict.thHName,
-        'th-hosp-depts': dict.thHDepts,
-        'th-hosp-subs': dict.thHSubs,
-        'th-hosp-share': dict.thHShare,
-        'th-hosp-double': dict.thHDouble,
-        'th-hosp-doses': dict.thHDoses,
-        'th-hosp-max': dict.thHMax,
-        'th-hosp-action': dict.thHAction
-    };
+const DOM_AR_TEXT_CACHE = new WeakMap();
+const DOM_AR_PH_CACHE = new WeakMap();
+const DOM_AR_TITLE_CACHE = new WeakMap();
+const DOM_AR_OPT_CACHE = new WeakMap();
 
-    for (const [id, val] of Object.entries(elMap)) {
-        const el = document.getElementById(id);
-        if (el) {
-            if (val.includes('<') && val.includes('>')) {
-                el.innerHTML = val;
+function translateEntireDOM(targetLang) {
+    const isEn = targetLang === 'en';
+    document.documentElement.setAttribute('lang', targetLang);
+    document.documentElement.setAttribute('dir', isEn ? 'ltr' : 'rtl');
+
+    function walkNode(node) {
+        // Text node translation
+        if (node.nodeType === Node.TEXT_NODE) {
+            const raw = node.nodeValue;
+            if (!raw || !raw.trim()) return;
+
+            if (isEn) {
+                if (!DOM_AR_TEXT_CACHE.has(node)) {
+                    DOM_AR_TEXT_CACHE.set(node, raw);
+                }
+                let current = raw;
+                // Replace all occurrences of sorted keys
+                for (let i = 0; i < SORTED_I18N_KEYS.length; i++) {
+                    const arKey = SORTED_I18N_KEYS[i];
+                    if (current.includes(arKey)) {
+                        current = current.split(arKey).join(MASTER_I18N_DICT[arKey]);
+                    }
+                }
+                node.nodeValue = current;
             } else {
-                el.innerText = val;
+                if (DOM_AR_TEXT_CACHE.has(node)) {
+                    node.nodeValue = DOM_AR_TEXT_CACHE.get(node);
+                }
             }
+            return;
+        }
+
+        // Element attributes & options
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE') return;
+
+            // Placeholders
+            if (node.hasAttribute('placeholder')) {
+                const ph = node.getAttribute('placeholder');
+                if (isEn) {
+                    if (!DOM_AR_PH_CACHE.has(node)) DOM_AR_PH_CACHE.set(node, ph);
+                    let curPh = ph;
+                    for (let i = 0; i < SORTED_I18N_KEYS.length; i++) {
+                        const arKey = SORTED_I18N_KEYS[i];
+                        if (curPh.includes(arKey)) {
+                            curPh = curPh.split(arKey).join(MASTER_I18N_DICT[arKey]);
+                        }
+                    }
+                    node.setAttribute('placeholder', curPh);
+                } else if (DOM_AR_PH_CACHE.has(node)) {
+                    node.setAttribute('placeholder', DOM_AR_PH_CACHE.get(node));
+                }
+            }
+
+            // Titles / Tooltips
+            if (node.hasAttribute('title')) {
+                const t = node.getAttribute('title');
+                if (isEn) {
+                    if (!DOM_AR_TITLE_CACHE.has(node)) DOM_AR_TITLE_CACHE.set(node, t);
+                    let curT = t;
+                    for (let i = 0; i < SORTED_I18N_KEYS.length; i++) {
+                        const arKey = SORTED_I18N_KEYS[i];
+                        if (curT.includes(arKey)) {
+                            curT = curT.split(arKey).join(MASTER_I18N_DICT[arKey]);
+                        }
+                    }
+                    node.setAttribute('title', curT);
+                } else if (DOM_AR_TITLE_CACHE.has(node)) {
+                    node.setAttribute('title', DOM_AR_TITLE_CACHE.get(node));
+                }
+            }
+
+            // Select Dropdown Options
+            if (node.tagName === 'OPTION') {
+                const optText = node.innerText;
+                if (isEn) {
+                    if (!DOM_AR_OPT_CACHE.has(node)) DOM_AR_OPT_CACHE.set(node, optText);
+                    let curOpt = optText;
+                    for (let i = 0; i < SORTED_I18N_KEYS.length; i++) {
+                        const arKey = SORTED_I18N_KEYS[i];
+                        if (curOpt.includes(arKey)) {
+                            curOpt = curOpt.split(arKey).join(MASTER_I18N_DICT[arKey]);
+                        }
+                    }
+                    node.innerText = curOpt;
+                } else if (DOM_AR_OPT_CACHE.has(node)) {
+                    node.innerText = DOM_AR_OPT_CACHE.get(node);
+                }
+            }
+        }
+
+        for (let child = node.firstChild; child; child = child.nextSibling) {
+            walkNode(child);
         }
     }
 
+    walkNode(document.body);
+
+    // Update Language Toggle Buttons
+    const lblLang = document.getElementById('lblLang');
+    if (lblLang) lblLang.innerText = isEn ? 'العربية' : 'English';
+    const lblLoginLang = document.getElementById('lblLoginLang');
+    if (lblLoginLang) lblLoginLang.innerText = isEn ? 'العربية' : 'English';
+}
+
+function applyLanguage(lang) {
+    currentLang = lang;
+    const isEn = lang === 'en';
+
+    // Theme label
     const lblT = document.getElementById('lblTheme');
-    if (lblT) lblT.innerText = currentTheme === 'dark' ? (lang === 'ar' ? 'الداكن' : 'Dark') : (lang === 'ar' ? 'الفاتح' : 'Light');
+    if (lblT) lblT.innerText = currentTheme === 'dark' ? (isEn ? 'Dark' : 'الداكن') : (isEn ? 'Light' : 'الفاتح');
 
-    // Update Input Placeholders
-    if (document.getElementById('facSearchInput')) {
-        document.getElementById('facSearchInput').placeholder = isEn ? "Search facility name or code..." : "ابحث باسم المستشفى أو الكود...";
-    }
-    if (document.getElementById('schSearchInput')) {
-        document.getElementById('schSearchInput').placeholder = isEn ? "Search center or department..." : "اسم المركز أو القسم...";
-    }
-    if (document.getElementById('drilldownSearchSub')) {
-        document.getElementById('drilldownSearchSub').placeholder = isEn ? "Search subscriber name..." : "بحث باسم المشترك...";
-    }
-
-    // Dynamically re-render active sections to reflect new language
+    // 1. Re-render all active components in target language
+    if (typeof renderHierarchyBarsChart === 'function') renderHierarchyBarsChart();
+    if (typeof renderFuturisticCharts === 'function') renderFuturisticCharts();
     if (typeof renderFacilitiesList === 'function' && currentFacilitiesData.length > 0) {
         renderFacilitiesList(currentFacilitiesData);
     }
@@ -3615,6 +3559,41 @@ function applyLanguage(lang) {
     if (typeof renderDosesRows === 'function' && currentDosesList.length > 0) {
         renderDosesRows(currentDosesList);
     }
+    if (typeof renderArchiveRows === 'function' && typeof currentArchiveList !== 'undefined' && currentArchiveList && currentArchiveList.length > 0) {
+        renderArchiveRows(currentArchiveList);
+    }
+
+    // 2. Perform deep DOM sweep to translate every static and dynamic string
+    translateEntireDOM(lang);
+}
+
+// Global Observer to automatically translate any dynamically inserted Arabic content when English is active
+if (typeof MutationObserver !== 'undefined') {
+    const observer = new MutationObserver((mutations) => {
+        if (currentLang !== 'en') return;
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE && /[\u0600-\u06FF]/.test(node.nodeValue)) {
+                    let current = node.nodeValue;
+                    for (let i = 0; i < SORTED_I18N_KEYS.length; i++) {
+                        const arKey = SORTED_I18N_KEYS[i];
+                        if (current.includes(arKey)) {
+                            current = current.split(arKey).join(MASTER_I18N_DICT[arKey]);
+                        }
+                    }
+                    node.nodeValue = current;
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    const elText = node.innerText || '';
+                    if (/[\u0600-\u06FF]/.test(elText)) {
+                        translateEntireDOM('en');
+                    }
+                }
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        observer.observe(document.body, { childList: true, subtree: true });
+    });
 }
 async function saveSettingToServer(key, val) {
     try {
@@ -3808,154 +3787,185 @@ function renderFuturisticCharts(data = null) {
 }
 
 function renderWaveChart(trends, summary) {
-    const canvas = document.getElementById("canvasWaveChart");
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    const rect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = rect.width * dpr;
-    canvas.height = 210 * dpr;
-    ctx.scale(dpr, dpr);
+    try {
+        const canvas = document.getElementById("canvasWaveChart");
+        if (!canvas) return;
+        const parent = canvas.parentElement;
+        const w = (parent && parent.clientWidth > 50) ? parent.clientWidth : (canvas.clientWidth > 50 ? canvas.clientWidth : 650);
+        const h = (parent && parent.clientHeight > 50) ? parent.clientHeight : 210;
+        const dpr = window.devicePixelRatio || 1;
 
-    const w = rect.width;
-    const h = 210;
-    ctx.clearRect(0, 0, w, h);
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+        canvas.style.width = '100%';
+        canvas.style.height = h + 'px';
 
-    const isDark = currentTheme === 'dark';
-    const paddingLeft = 50;
-    const paddingRight = 30;
-    const paddingTop = 32;
-    const paddingBottom = 42;
-    const plotW = w - paddingLeft - paddingRight;
-    const plotH = h - paddingTop - paddingBottom;
+        const ctx = canvas.getContext("2d");
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, w, h);
 
-    const safeThreshold = 1.67;
-    const periods = trends?.periods || [];
-    const overallMax = summary?.overall_max_dose || 0;
-    const maxVal = Math.max(2.5, Math.ceil(overallMax * 1.25 * 10) / 10);
+        const isDark = currentTheme === 'dark';
+        const isEn = currentLang === 'en';
+        const paddingLeft = 50;
+        const paddingRight = 30;
+        const paddingTop = 32;
+        const paddingBottom = 42;
+        const plotW = Math.max(100, w - paddingLeft - paddingRight);
+        const plotH = Math.max(50, h - paddingTop - paddingBottom);
 
-    // Update safe badge indicator
-    const safeBadge = document.getElementById("t-wave-safe-badge");
-    if (safeBadge) {
-        if (!trends || !trends.has_data || periods.length === 0) {
-            safeBadge.innerHTML = `<span class="text-muted">لا توجد قراءات مسجلة بعد</span>`;
-        } else if (overallMax > safeThreshold) {
-            safeBadge.innerHTML = `<b class="text-danger"><i class="bi bi-exclamation-triangle"></i> تنبيه: أعلى جرعة ${overallMax} mSv (تجاوز حد المراقبة)</b>`;
-        } else {
-            safeBadge.innerHTML = `<i class="bi bi-shield-check"></i> كافة القراءات تقع في النطاق الآمن (&lt; 1.67 mSv) [أعلى قراءة: ${overallMax} mSv]`;
+        const safeThreshold = 1.67;
+        const overallMax = Number(summary?.overall_max_dose || 0);
+        const maxVal = Math.max(2.5, Math.ceil(overallMax * 1.25 * 10) / 10);
+
+        // Update safe badge indicator in the TOP card header
+        const safeBadge = document.getElementById("t-wave-safe-badge");
+        if (safeBadge) {
+            if (!trends || !trends.has_data) {
+                safeBadge.innerHTML = `<span class="text-muted">${isEn ? 'No readings recorded yet' : 'لا توجد قراءات مسجلة بعد'}</span>`;
+            } else if (overallMax > safeThreshold) {
+                safeBadge.innerHTML = `<b class="text-danger"><i class="bi bi-exclamation-triangle"></i> ${isEn ? 'Alert: Highest dose ' + overallMax.toFixed(2) + ' mSv (Investigation Limit Exceeded)' : 'تنبيه: أعلى جرعة ' + overallMax.toFixed(2) + ' mSv (تجاوز حد المراقبة)'}</b>`;
+            } else {
+                safeBadge.innerHTML = `<i class="bi bi-shield-check"></i> ${isEn ? 'All readings within safe range (< 1.67 mSv) [Max: ' + overallMax.toFixed(2) + ' mSv]' : 'كافة القراءات في النطاق الآمن (< 1.67 mSv) [أعلى قراءة: ' + overallMax.toFixed(2) + ' mSv]'}`;
+            }
         }
-    }
 
-    // Grid lines & Y-axis labels
-    ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 4]);
+        // Grid lines & Y-axis labels
+        ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
 
-    for (let step = 0; step <= 4; step++) {
-        const yVal = maxVal * (step / 4);
-        const yPos = (h - paddingBottom) - (step / 4) * plotH;
-        ctx.beginPath();
-        ctx.moveTo(paddingLeft, yPos);
-        ctx.lineTo(w - paddingRight, yPos);
-        ctx.stroke();
+        for (let step = 0; step <= 4; step++) {
+            const yVal = maxVal * (step / 4);
+            const yPos = (h - paddingBottom) - (step / 4) * plotH;
+            ctx.beginPath();
+            ctx.moveTo(paddingLeft, yPos);
+            ctx.lineTo(w - paddingRight, yPos);
+            ctx.stroke();
 
-        ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
-        ctx.font = '10px Cairo, sans-serif';
-        ctx.textAlign = 'right';
-        ctx.fillText(yVal.toFixed(1), paddingLeft - 6, yPos + 3);
-    }
-    ctx.setLineDash([]);
-
-    // Draw Horizontal Dashed Cyan Safe Limit Line at 1.67 mSv
-    const safeY = (h - paddingBottom) - (safeThreshold / maxVal) * plotH;
-    ctx.strokeStyle = '#00e5ff';
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([5, 5]);
-    ctx.beginPath();
-    ctx.moveTo(paddingLeft, safeY);
-    ctx.lineTo(w - paddingRight, safeY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Line Label placed cleanly in top margin to avoid bar collisions
-    ctx.fillStyle = '#00e5ff';
-    ctx.font = 'bold 10px Cairo, sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillText('حد المراقبة: 1.67 mSv', w - paddingRight, safeY - 6);
-
-    // If NO data exists in database (user deleted records or new system):
-    if (!trends || !trends.has_data || periods.length === 0) {
-        ctx.strokeStyle = isDark ? '#334155' : '#cbd5e1';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(paddingLeft, h - paddingBottom);
-        ctx.lineTo(w - paddingRight, h - paddingBottom);
-        ctx.stroke();
-
-        ctx.fillStyle = isDark ? '#cbd5e1' : '#334155';
-        ctx.font = 'bold 13px Cairo, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('لا توجد قراءات إشعاعية مسجلة بعد في السنة الحالية', w / 2, (h / 2) + 5);
-        ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
-        ctx.font = '11px Cairo, sans-serif';
-        ctx.fillText('قم باستيراد ملف القارئ أو تسجيل قراءة لتظهر الأعمدة والمستويات تلقائياً', w / 2, (h / 2) + 25);
-        return;
-    }
-
-    // Render CLEAR, SPACIOUS VERTICAL BARS for each recorded period
-    const n = periods.length;
-    const barWidth = Math.min(55, Math.max(30, plotW / (n * 2)));
-
-    periods.forEach((p, idx) => {
-        const val = p.max_hp10 || p.avg_hp10 || 0;
-        const barHeight = Math.max(6, (val / maxVal) * plotH);
-        const x = paddingLeft + (idx + 0.5) * (plotW / n) - (barWidth / 2);
-        const y = (h - paddingBottom) - barHeight;
-
-        // Gradient Fill
-        const grad = ctx.createLinearGradient(0, y, 0, h - paddingBottom);
-        const baseColor = p.color || (p.is_cathlab ? '#ff9100' : '#f50057');
-        grad.addColorStop(0, baseColor);
-        grad.addColorStop(1, isDark ? 'rgba(20, 25, 45, 0.2)' : 'rgba(220, 230, 245, 0.2)');
-
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        if (ctx.roundRect) {
-            ctx.roundRect(x, y, barWidth, barHeight, [6, 6, 0, 0]);
-        } else {
-            ctx.rect(x, y, barWidth, barHeight);
+            ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
+            ctx.font = '10px Cairo, sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText(yVal.toFixed(2), paddingLeft - 8, yPos + 4);
         }
-        ctx.fill();
+        ctx.setLineDash([]);
 
-        // Glowing Cap (Red if exceeded safe limit, else theme color)
-        const isExceeded = val > safeThreshold;
-        ctx.strokeStyle = isExceeded ? '#ef4444' : baseColor;
-        ctx.lineWidth = 2.5;
+        // Safe threshold line at 1.67
+        const safeY = (h - paddingBottom) - (safeThreshold / maxVal) * plotH;
+        ctx.strokeStyle = 'rgba(0, 229, 255, 0.45)';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([5, 4]);
         ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + barWidth, y);
+        ctx.moveTo(paddingLeft, safeY);
+        ctx.lineTo(w - paddingRight, safeY);
         ctx.stroke();
+        ctx.setLineDash([]);
 
-        // Value on top (with warning icon if exceeded)
-        ctx.fillStyle = isExceeded ? '#ef4444' : (isDark ? '#ffffff' : '#0f172a');
-        ctx.font = 'bold 11px Cairo, sans-serif';
-        ctx.textAlign = 'center';
-        const labelText = isExceeded ? `⚠️ ${val} mSv` : `${val} mSv`;
-        ctx.fillText(labelText, x + barWidth / 2, y - 7);
+        ctx.fillStyle = isDark ? '#00e5ff' : '#0284c7';
+        ctx.font = 'bold 9px Cairo, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(isEn ? 'Safe Ref: 1.67 mSv' : 'الحد الشهري: 1.67', w - paddingRight - 80, safeY - 4);
 
-        // Period Label below (e.g. شهر 1 (قسطرة))
-        ctx.fillStyle = isDark ? '#cbd5e1' : '#1e293b';
-        ctx.font = 'bold 10px Cairo, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(p.label, x + barWidth / 2, h - paddingBottom + 16);
+        // 12 Months along X-axis
+        const months = isEn ? 
+            ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] :
+            ['شهر 1', 'شهر 2', 'شهر 3', 'شهر 4', 'شهر 5', 'شهر 6', 'شهر 7', 'شهر 8', 'شهر 9', 'شهر 10', 'شهر 11', 'شهر 12'];
 
-        // Count below label
-        ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
-        ctx.font = '9px Cairo, sans-serif';
-        ctx.fillText(`(${p.count} وضحة)`, x + barWidth / 2, h - paddingBottom + 30);
-    });
+        const cathData = (trends && Array.isArray(trends.cathlab)) ? trends.cathlab : new Array(12).fill(0);
+        const radQuarterly = (trends && Array.isArray(trends.radiology)) ? trends.radiology : [0, 0, 0, 0];
+        const radData = [
+            radQuarterly[0] || 0, radQuarterly[0] || 0, radQuarterly[0] || 0,
+            radQuarterly[1] || 0, radQuarterly[1] || 0, radQuarterly[1] || 0,
+            radQuarterly[2] || 0, radQuarterly[2] || 0, radQuarterly[2] || 0,
+            radQuarterly[3] || 0, radQuarterly[3] || 0, radQuarterly[3] || 0
+        ];
+
+        function getX(i) {
+            return paddingLeft + (i / 11) * plotW;
+        }
+        function getY(val) {
+            const v = Math.min(val || 0, maxVal);
+            return (h - paddingBottom) - (v / maxVal) * plotH;
+        }
+
+        // Draw Smooth Curves helper
+        function drawCurve(pts, color, fillGrad) {
+            if (pts.length < 2) return;
+            ctx.beginPath();
+            ctx.moveTo(pts[0].x, pts[0].y);
+            for (let i = 0; i < pts.length - 1; i++) {
+                const mx = (pts[i].x + pts[i + 1].x) / 2;
+                const my = (pts[i].y + pts[i + 1].y) / 2;
+                ctx.quadraticCurveTo(pts[i].x, pts[i].y, mx, my);
+            }
+            ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y);
+
+            if (fillGrad) {
+                ctx.lineTo(pts[pts.length - 1].x, h - paddingBottom);
+                ctx.lineTo(pts[0].x, h - paddingBottom);
+                ctx.closePath();
+                ctx.fillStyle = fillGrad;
+                ctx.fill();
+            } else {
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2.5;
+                ctx.stroke();
+            }
+        }
+
+        // Draw Cath Lab Curve (Orange)
+        const cathPts = months.map((m, i) => ({ x: getX(i), y: getY(cathData[i]) }));
+        const cathGrad = ctx.createLinearGradient(0, 0, 0, h);
+        cathGrad.addColorStop(0, 'rgba(255, 145, 0, 0.28)');
+        cathGrad.addColorStop(1, 'rgba(255, 145, 0, 0.0)');
+        drawCurve(cathPts, '#ff9100', cathGrad);
+        drawCurve(cathPts, '#ff9100', null);
+
+        // Cath points
+        cathPts.forEach((pt, i) => {
+            if (cathData[i] > 0) {
+                ctx.fillStyle = '#ff9100';
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, 4, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+        });
+
+        // Draw Radiology Curve (Pink)
+        const radPts = months.map((m, i) => ({ x: getX(i), y: getY(radData[i]) }));
+        const radGrad = ctx.createLinearGradient(0, 0, 0, h);
+        radGrad.addColorStop(0, 'rgba(245, 0, 87, 0.2)');
+        radGrad.addColorStop(1, 'rgba(245, 0, 87, 0.0)');
+        drawCurve(radPts, '#f50057', radGrad);
+        drawCurve(radPts, '#f50057', null);
+
+        // Rad points
+        radPts.forEach((pt, i) => {
+            if (radData[i] > 0 && (i === 2 || i === 5 || i === 8 || i === 11)) {
+                ctx.fillStyle = '#f50057';
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, 4, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+        });
+
+        // X-axis Month Labels
+        months.forEach((m, i) => {
+            const x = getX(i);
+            ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
+            ctx.font = 'bold 8.5px Cairo, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(m, x, h - paddingBottom + 16);
+        });
+    } catch(err) {
+        console.error("Error rendering wave chart:", err);
+    }
 }
-
 function renderRadialGauge(compliance, summary) {
     const canvas = document.getElementById("canvasRadialGauge");
     if (!canvas) return;
@@ -4132,7 +4142,7 @@ let currentSelectedDeptId = 'ALL';
 async function loadHierarchyAnalytics(year = null) {
     const yr = year || activeSystemYear || 2026;
     try {
-        const res = await fetch(`/api/analytics/hierarchy?year=${yr}`);
+        const res = await fetch(`/api/analytics/hierarchy?year=${yr}`, { headers: typeof authHeaders === "function" ? authHeaders() : {} });
         hierarchyData = await res.json();
         
         // Populate hospital dropdown
@@ -4185,49 +4195,62 @@ function switchHierarchyMetric(metric) {
 function renderHierarchyBarsChart() {
     const canvas = document.getElementById("canvasHierarchyBars");
     if (!canvas || !hierarchyData) return;
-    const ctx = canvas.getContext("2d");
-    const rect = canvas.getBoundingClientRect();
+    const parent = canvas.parentElement;
+    const w = (parent && parent.clientWidth > 50) ? parent.clientWidth : (canvas.clientWidth > 50 ? canvas.clientWidth : 650);
+    const h = (parent && parent.clientHeight > 50) ? parent.clientHeight : 230;
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = rect.width * dpr;
-    canvas.height = 230 * dpr;
-    ctx.scale(dpr, dpr);
 
-    const w = rect.width;
-    const h = 230;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = '100%';
+    canvas.style.height = h + 'px';
+
+    const ctx = canvas.getContext("2d");
+    ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, w, h);
 
     const isDark = currentTheme === 'dark';
     const isSubs = currentHierarchyMetric === 'subs';
+    const isEn = currentLang === 'en';
 
     const items = hierarchyData.hospitals || [];
     if (items.length === 0) {
         ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
         ctx.font = '14px Cairo, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('لا توجد بيانات متاحة', w / 2, h / 2);
+        ctx.fillText(isEn ? 'No data available' : 'لا توجد بيانات متاحة', w / 2, h / 2);
         return;
     }
 
     // Title badge
     const totalVal = isSubs ? 
-        hierarchyData.summary.total_subscribers : 
-        `${hierarchyData.summary.overall_cumulative_hp10} mSv`;
-    document.getElementById("hierChartTotalBadge").innerText = `الإجمالي: ${totalVal}`;
-    document.getElementById("hierChartLabelTitle").innerHTML = isSubs ? 
-        `<i class="bi bi-bar-chart-fill"></i> توزيع المشتركين في كل مستشفى بأعمدة ملونة` : 
-        `<i class="bi bi-radioactive"></i> مقارنة الجرعات التراكمية (Hp10) بين المستشفيات بأعمدة ملونة`;
+        (hierarchyData.summary?.total_subscribers || 0) : 
+        `${(hierarchyData.summary?.overall_cumulative_hp10 || 0).toFixed(2)} mSv`;
+    
+    const badgeEl = document.getElementById("hierChartTotalBadge");
+    if (badgeEl) badgeEl.innerText = `${isEn ? 'Total:' : 'الإجمالي:'} ${totalVal} ${isSubs ? (isEn ? 'Staff' : 'مشترك') : ''}`;
+    
+    const labelTitleEl = document.getElementById("hierChartLabelTitle");
+    if (labelTitleEl) {
+        labelTitleEl.innerHTML = isSubs ? 
+            `<i class="bi bi-bar-chart-fill me-1"></i> ${isEn ? 'Subscriber Distribution per Facility (Colored Bars)' : 'توزيع المشتركين في كل مستشفى بأعمدة ملونة'}` : 
+            `<i class="bi bi-radioactive me-1"></i> ${isEn ? 'Cumulative Dose (Hp10) Comparison per Facility' : 'مقارنة الجرعات التراكمية (Hp10) بين المستشفيات بأعمدة ملونة'}`;
+    }
 
     const paddingLeft = 60;
     const paddingRight = 30;
     const paddingTop = 35;
-    const paddingBottom = 45;
-    const plotW = w - paddingLeft - paddingRight;
-    const plotH = h - paddingTop - paddingBottom;
+    const paddingBottom = 48;
+    const plotW = Math.max(100, w - paddingLeft - paddingRight);
+    const plotH = Math.max(50, h - paddingTop - paddingBottom);
+
+    // Vibrant distinct color palette for colored columns
+    const colorPalette = ['#00e5ff', '#ff9100', '#00e676', '#e040fb', '#ffd600', '#2979ff', '#ff1744', '#00b0ff'];
 
     // Determine Max value for scale
-    const values = items.map(it => isSubs ? it.subscribers_count : it.cumulative_hp10);
+    const values = items.map(it => isSubs ? Number(it.subscribers_count || 0) : Number(it.cumulative_hp10 || 0));
     let maxVal = Math.max(...values, isSubs ? 5 : 0.5);
-    maxVal = Math.ceil(maxVal * 1.2 * 10) / 10;
+    maxVal = Math.ceil(maxVal * 1.25 * 10) / 10;
     if (isSubs && maxVal < 5) maxVal = 5;
 
     // Grid lines
@@ -4250,57 +4273,62 @@ function renderHierarchyBarsChart() {
     }
     ctx.setLineDash([]);
 
-    // Draw Bars
+    // Draw Columns / Bars
     const n = items.length;
-    const barWidth = Math.min(55, Math.max(25, plotW / (n * 1.8)));
+    const barWidth = Math.min(55, Math.max(26, plotW / (n * 1.8)));
 
     items.forEach((item, i) => {
-        const val = isSubs ? item.subscribers_count : item.cumulative_hp10;
-        const barHeight = Math.max(4, (val / maxVal) * plotH);
+        const val = isSubs ? Number(item.subscribers_count || 0) : Number(item.cumulative_hp10 || 0);
+        const barHeight = Math.max(8, (val / maxVal) * plotH);
         const x = paddingLeft + (i + 0.5) * (plotW / n) - (barWidth / 2);
         const y = (h - paddingBottom) - barHeight;
+        const barColor = item.color || colorPalette[i % colorPalette.length];
 
         // Gradient Fill
         const grad = ctx.createLinearGradient(0, y, 0, h - paddingBottom);
-        grad.addColorStop(0, item.color);
-        grad.addColorStop(1, isDark ? 'rgba(20, 25, 45, 0.2)' : 'rgba(220, 230, 245, 0.2)');
+        grad.addColorStop(0, barColor);
+        grad.addColorStop(1, isDark ? 'rgba(15, 23, 42, 0.4)' : 'rgba(226, 232, 240, 0.4)');
 
         ctx.fillStyle = grad;
+        // Draw Clean Rounded Top Rectangle
+        const r = Math.min(6, barWidth / 2, barHeight / 2);
         ctx.beginPath();
-        if (ctx.roundRect) {
-            ctx.roundRect(x, y, barWidth, barHeight, [6, 6, 0, 0]);
-        } else {
-            ctx.rect(x, y, barWidth, barHeight);
-        }
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + barWidth - r, y);
+        ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + r);
+        ctx.lineTo(x + barWidth, h - paddingBottom);
+        ctx.lineTo(x, h - paddingBottom);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
         ctx.fill();
 
-        // Glowing Top Cap
-        ctx.strokeStyle = item.color;
-        ctx.lineWidth = 2.5;
+        // Glowing Border & Top Cap
+        ctx.strokeStyle = barColor;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + barWidth, y);
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + barWidth - r, y);
         ctx.stroke();
 
-        // Value text on top
+        // Value text on top of bar
         ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
         ctx.font = 'bold 11px Cairo, sans-serif';
         ctx.textAlign = 'center';
         const displayVal = isSubs ? `${val}` : `${val.toFixed(2)} mSv`;
-        ctx.fillText(displayVal, x + barWidth / 2, y - 8);
+        ctx.fillText(displayVal, x + barWidth / 2, y - 7);
 
-        // Hospital Name below
+        // Hospital Name below X-axis
         ctx.fillStyle = isDark ? '#cbd5e1' : '#1e293b';
         ctx.font = '10px Cairo, sans-serif';
         ctx.textAlign = 'center';
         let shortName = item.name.length > 16 ? item.name.substring(0, 14) + '..' : item.name;
         ctx.fillText(shortName, x + barWidth / 2, h - paddingBottom + 16);
-        ctx.fillStyle = item.color;
+        ctx.fillStyle = barColor;
         ctx.font = 'bold 9px monospace';
-        ctx.fillText(`[${item.code}]`, x + barWidth / 2, h - paddingBottom + 30);
+        ctx.fillText(`[${item.code || '-'}]`, x + barWidth / 2, h - paddingBottom + 30);
     });
 }
-
 function renderHierarchySidePills() {
     const cont = document.getElementById("hierDynamicPillsList");
     if (!cont || !hierarchyData) return;
@@ -4595,7 +4623,7 @@ function renderDrilldownEmployeesTable() {
 async function loadDashboardData() {
     try {
         await loadHierarchyAnalytics();
-        const res = await fetch("/api/dashboard/stats");
+        const res = await fetch("/api/dashboard/stats", { headers: typeof authHeaders === "function" ? authHeaders() : {} });
         const data = await res.json();
         const s = data.summary;
 
@@ -5436,13 +5464,14 @@ function renderSubscribersTable(subs) {
 
     subs.forEach((s, idx) => {
         const isChecked = selectedSubIds.has(s.id) ? "checked" : "";
+        const isEn = currentLang === 'en';
         const badgeType = s.has_double_badge ? 
-            `<span class="badge bg-danger">ثنائية (OA+UA)</span>` : 
-            `<span class="badge bg-primary">صدرية</span>`;
+            `<span class="badge bg-danger">${isEn ? 'Double (OA+UA)' : 'ثنائية (OA+UA)'}</span>` : 
+            `<span class="badge bg-primary">${isEn ? 'Chest Only' : 'صدرية'}</span>`;
 
         const statusBadge = s.status === 'ACTIVE' ? 
-            `<span class="badge bg-success">نشط</span>` : 
-            `<span class="badge bg-secondary">مستقيل</span>`;
+            `<span class="badge bg-success">${isEn ? 'Active' : 'نشط'}</span>` : 
+            `<span class="badge bg-secondary">${isEn ? 'Resigned' : 'مستقيل'}</span>`;
 
         tbody.innerHTML += `<tr>
             <td><input type="checkbox" class="form-check-input check-sub-row" value="${s.id}" ${isChecked} onchange="onSubRowCheckChanged(${s.id}, this.checked)"></td>
@@ -5929,12 +5958,13 @@ async function loadReceptionManifest() {
             const recOAChecked = s.received_oa ? "checked" : "";
             const recUAChecked = s.received_ua ? "checked" : "";
 
+            const isEn = currentLang === 'en';
             let statusSelect = `
                 <select class="form-select form-select-sm sel-rec-status" data-sub-id="${s.subscriber_id}">
-                    <option value="RECEIVED" ${s.rec_status === 'RECEIVED' ? 'selected' : ''}>تم الاستلام (طبيعي)</option>
-                    <option value="NOT_RETURNED" ${s.rec_status === 'NOT_RETURNED' ? 'selected' : ''}>لم تُعد الوضحة (NR)</option>
-                    <option value="MISSING" ${s.rec_status === 'MISSING' ? 'selected' : ''}>مفقودة (Lost)</option>
-                    <option value="DAMAGED" ${s.rec_status === 'DAMAGED' ? 'selected' : ''}>تالفة (Damaged)</option>
+                    <option value="RECEIVED" ${s.rec_status === 'RECEIVED' ? 'selected' : ''}>${isEn ? 'Received (Normal)' : 'تم الاستلام (طبيعي)'}</option>
+                    <option value="NOT_RETURNED" ${s.rec_status === 'NOT_RETURNED' ? 'selected' : ''}>${isEn ? 'Not Returned (NR)' : 'لم تُعد الوضحة (NR)'}</option>
+                    <option value="MISSING" ${s.rec_status === 'MISSING' ? 'selected' : ''}>${isEn ? 'Missing (Lost)' : 'مفقودة (Lost)'}</option>
+                    <option value="DAMAGED" ${s.rec_status === 'DAMAGED' ? 'selected' : ''}>${isEn ? 'Damaged' : 'تالفة (Damaged)'}</option>
                 </select>
             `;
 
@@ -6379,7 +6409,8 @@ function renderDosesRows(list) {
     const cardsContainer = document.getElementById("dosesCardsContainer");
     tbody.innerHTML = "";
     if (cardsContainer) cardsContainer.innerHTML = "";
-    document.getElementById("dosesCountLabel").innerText = `عدد المشتركين: ${list.length}`;
+    const isEn = currentLang === 'en';
+    document.getElementById("dosesCountLabel").innerText = `${isEn ? 'Subscribers Count:' : 'عدد المشتركين:'} ${list.length}`;
 
     if (list.length === 0) {
         tbody.innerHTML = `<tr><td colspan="13" class="text-center py-4 text-muted">لا توجد قراءات مسجلة لهذه الفلاتر</td></tr>`;
@@ -6389,8 +6420,8 @@ function renderDosesRows(list) {
 
     list.forEach((r, idx) => {
         let badgeTypeHtml = r.has_double_badge ? 
-            `<span class="badge bg-danger">ثنائية (OA+UA)</span>` : 
-            `<span class="badge bg-primary">صدرية</span>`;
+            `<span class="badge bg-danger">${isEn ? 'Double (OA+UA)' : 'ثنائية (OA+UA)'}</span>` : 
+            `<span class="badge bg-primary">${isEn ? 'Chest Only' : 'صدرية'}</span>`;
 
         let serialsHtml = `<code>${r.badge_oa_serial || r.current_serial_oa || '-'}</code>`;
         if (r.has_double_badge) {
@@ -6403,10 +6434,10 @@ function renderDosesRows(list) {
 
         if (r.is_recorded) {
             if (r.remark === 'NR') {
-                statusHtml = `<span class="badge bg-secondary">لم تُعد (NR)</span>`;
+                statusHtml = `<span class="badge bg-secondary">${isEn ? 'Not Returned (NR)' : 'لم تُعد (NR)'}</span>`;
                 hp10Html = `<span class="text-muted fw-bold">0.00</span>`;
             } else {
-                statusHtml = `<span class="badge bg-success">معتمدة ومحسوبة</span>`;
+                statusHtml = `<span class="badge bg-success">${isEn ? 'Recorded & Verified' : 'معتمدة ومحسوبة'}</span>`;
                 let val = parseFloat(hp10Val || 0);
                 if (val > 1.67) {
                     hp10Html = `<span class="dose-alert">${val.toFixed(2)}</span>`;
@@ -6417,7 +6448,7 @@ function renderDosesRows(list) {
                 }
             }
         } else {
-            statusHtml = `<span class="badge bg-light text-dark border">غير مدخلة</span>`;
+            statusHtml = `<span class="badge bg-light text-dark border">${isEn ? 'Pending Entry' : 'غير مدخلة'}</span>`;
             hp10Html = `<span class="text-muted">-</span>`;
         }
 
@@ -6806,14 +6837,15 @@ function renderArchiveRows(list) {
         return;
     }
 
+    const isEn = currentLang === 'en';
     list.forEach((s, idx) => {
         const badgeType = s.has_double_badge ? 
-            `<span class="badge bg-danger">ثنائية (OA+UA)</span>` : 
-            `<span class="badge bg-primary">صدرية</span>`;
+            `<span class="badge bg-danger">${isEn ? 'Double (OA+UA)' : 'ثنائية (OA+UA)'}</span>` : 
+            `<span class="badge bg-primary">${isEn ? 'Chest Only' : 'صدرية'}</span>`;
 
         const statBadge = s.is_exceeded ? 
-            `<span class="dose-alert">تجاوز الحد (≥20 mSv)</span>` : 
-            `<span class="dose-safe">آمن (&lt;20 mSv)</span>`;
+            `<span class="dose-alert">${isEn ? 'Exceeded Limit (≥20 mSv)' : 'تجاوز الحد (≥20 mSv)'}</span>` : 
+            `<span class="dose-safe">${isEn ? 'Normal (<20 mSv)' : 'آمن (&lt;20 mSv)'}</span>`;
 
         tbody.innerHTML += `<tr>
             <td>${idx + 1}</td>
@@ -6914,6 +6946,12 @@ function showMainApp() {
     const mainAppWrapper = document.getElementById('mainAppWrapper');
     if (loginScreen) loginScreen.style.display = 'none';
     if (mainAppWrapper) mainAppWrapper.style.display = 'block';
+    
+    // Ensure all charts re-render after layout reflow
+    setTimeout(() => {
+        if (typeof renderFuturisticCharts === 'function') renderFuturisticCharts();
+        if (typeof renderHierarchyBarsChart === 'function') renderHierarchyBarsChart();
+    }, 100);
 }
 
 function togglePasswordVisibility(inputId, iconId) {

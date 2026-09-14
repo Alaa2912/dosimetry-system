@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  osl-app:
+    build: .
+    container_name: osl_dosimetry_online
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+      - ./output:/app/output
+    environment:
+      - DB_PATH=/app/data/osl_service.db
+      - SECRET_KEY=osl_inlight_radiation_auth_secret_key_2026_secure
